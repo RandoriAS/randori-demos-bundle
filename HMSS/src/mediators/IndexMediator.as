@@ -47,13 +47,6 @@ public class IndexMediator extends AbstractMediator {
 		}
 
 		private function menuItemSelected( menuData:MenuItem ):void  {
-
-            var loc:Location = new Location();
-            loc.href = "stuff.html";
-
-            Window.location = loc;
-
-            return;
 			viewStack.popView();
 			var promise:Promise = viewStack.pushView(menuData.url);
 			
