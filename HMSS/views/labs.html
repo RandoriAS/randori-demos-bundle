@@ -4,6 +4,21 @@
 		<title></title>
 	</head>
 	<body class="tab-content labs">
-        <div id="message"/>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="gadgets" class="simpleList">
+            <tr id="template">
+                <td>{name}</td>
+                <td><img src="{image}" width="150"></td>
+                <td>{status}</td>
+            </tr>
+            </tbody>
+        </table>
     </body>
 </html>

@@ -29,13 +29,20 @@ import services.LabService;
 public class LabsMediator extends AbstractMediator {
 		
 		[View]
-		public var message:JQuery;
+        public var gadgets:SimpleList;
 
-		override protected function onRegister():void {
-            message.text( "Labs Mediator Loaded and Registered" );
+        [Inject]
+        public var labService:LabService
+
+        override protected function onRegister():void {
+            labService.get().then( displayInList );
 		}
 
-		public function LabsMediator() {
+        private function displayInList( data:Array ):void {
+            gadgets.data = data;
+        }
+
+        public function LabsMediator() {
 			super();
 		}
 	}

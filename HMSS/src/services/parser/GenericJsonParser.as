@@ -19,7 +19,7 @@
 package services.parser {
 	import randori.service.parser.AbstractParser;
 	
-	import services.vo.TargetData;
+	import services.vo.Target;
 	
 	public class GenericJsonParser extends AbstractParser {
 
