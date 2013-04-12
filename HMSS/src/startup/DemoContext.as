@@ -17,7 +17,9 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package startup {
-	import guice.GuiceModule;
+import eventBus.HMSSBus;
+
+import guice.GuiceModule;
 	import guice.binding.Binder;
 	import guice.binding.Scope;
 	
@@ -28,6 +30,7 @@ import services.TargetsService;
 public class DemoContext extends GuiceModule {
 		
 		override public function configure(binder:Binder):void {
+            binder.bind( HMSSBus).inScope( Scope.Singleton).to( HMSSBus );
 		}
 		
 		public function DemoContext() {

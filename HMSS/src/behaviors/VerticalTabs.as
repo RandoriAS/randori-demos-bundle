@@ -37,13 +37,15 @@ package behaviors {
 			
 			first.addClass( "first" );
 			last.addClass("last");
+
+            selectedIndex = 0;
 		}
 		
 		override protected function onRegister():void  {
 			this.listChanged.add( listChangedHandler );
 			super.onRegister();
 		}
-		
+
 		private function listChangedHandler( index:int, data:Object ):void {
 			if (data != null) {
 				menuItemSelected.dispatch(data as MenuItem);
