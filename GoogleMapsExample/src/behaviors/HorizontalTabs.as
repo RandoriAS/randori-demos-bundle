@@ -27,6 +27,8 @@ package behaviors {
 
             first.addClass( "first" );
             last.addClass("last");
+
+            selectedIndex = 0;
         }
 
         override protected function onRegister():void  {
