@@ -1,0 +1,17 @@
+.googleMapsExample{
+    -randori-context: "contexts.ExampleContext";
+    -randori-mediator: "mediators.IndexMediator";
+}
+
+.viewStack {
+    -randori-behavior: "randori.behaviors.ViewStack";
+}
+
+.horizontalTabs {
+    -randori-behavior: "behaviors.HorizontalTabs";
+}
+
+.generalContentMediator {
+    -randori-mediator: "mediators.GeneralContentMediator";
+
+}

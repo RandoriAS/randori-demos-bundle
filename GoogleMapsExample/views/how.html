@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How</title>
+    </head>
+    <body class="contentsBody generalContentMediator">
+        <div class="contentsDiv">
+            <h1>So, let's try and explain how everything works here.</h1>
+            <p>Remember, on github.com/darscan/robotlegs/tree/master you can read
+                more about the framework.</p>
+            <h2>First things first.</h2>
+            <p>The project is a FlashBuilder AS3-project using SDK4.0.0 build 7219.
+                It is set to build in /web/assets/swf/ and opens the index.html in /web
+                if you debug the project. The index.html embeds a loader.swf and it loads
+                the swf we compile with FlashBuilder. The View (component) classes in
+                the code embed graphical assets (movieclips) from fla files (Flash CS4).
+                These are set to publish in src/main/flash/assets/swf/. If you change
+                things in the fla's, compile in the Flash IDE and debug the project in
+                FlashBuilder to see the changes. The Googlemap uses a custom marker.
+                Its View class embeds a .png that resides in src/main/flash/assets/bitmaps/.
+                One thing to mention: I used the word component. No, I don't mean a full
+                fledged AS3 Component. In the contexts of the framework we merely use the
+                word component to make a distinction between the Mediator and the view
+                component it mediates.</p>
+            <p>The basic idea is to show how the framework
+                is used to consume content like xml and a service. And (of course) how to
+                set and change the state using events. On the Googlemap I show some pubs
+                in our country with corresponding entries under the 'Tips' tab in the main
+                navigation. Clicking on one of the markers triggers an event in the View
+                component and its Mediator handles the event by calling the (Googlemaps API)
+                service. The Mediator receives the result from the service and changes the
+                state of the View component via its API. To demonstrate how to 'communicate'
+                between the main content pane and the Googlemap (these two 'components' are
+                obviously unaware of each other) the tips will 'trigger' an event when clicked
+                and cause the Googlemap to change its state.<br/><br/>Within the main content
+                pane the main navigation is a seperate component. It merely triggers an event
+                when one of the tabs is clicked. The event carries an id and the Mediator
+                that 'governs' the content view component uses this id to show the correct
+                content from the xml.</p>
+            <p>Ok, that pretty much wraps it up. Last thing to mention: this is a work in
+                progress so I'll probably refactor some things, so check back if you want
+                to have the latest version. And now:<p>
+                <span class='link'><a id="goToTips" href='#' data-navto="tips">Show me the best pubs >></a></span>
+        </div>
+    </body>
+</html>

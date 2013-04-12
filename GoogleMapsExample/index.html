@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="assets/default.css" type="text/css"/>
+        <link rel="stylesheet/randori" href="assets/behaviors.css" type="text/css"/>
+        <!-- JQuery -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+        </script>
+        <!-- Randori Dependencies -->
+        <script type="text/javascript" src="generated/lib/RandoriGuice.js"></script>
+        <script type="text/javascript" src="generated/lib/Randori.js"></script>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
+        </script>
+
+        <script type="text/javascript">
+            google.maps.event.addDomListenerOnce(window, 'load',
+                    function() {
+                        if( window.console){
+                            console.log("Google Map Initialized");
+                        }
+                        var randoriApp = new randori.startup.RandoriBootstrap(document);
+                        randoriApp.launch(true);
+                    }
+            );
+        </script>
+    </head>
+    <body class="googleMapsExample">
+
+        <div class="mapDiv">
+            <div id="map" class="map"></div>
+        </div>
+
+        <div class="rightSideDiv">
+            <div class="h-nav">
+                <ul id="menu" class="horizontalTabs" >
+                    <li id="template">{name}</li>
+                </ul>
+            </div>
+
+            <div id="viewStack" class="contentArea viewStack"></div>
+        </div>
+
+
+    </body>
+</html>

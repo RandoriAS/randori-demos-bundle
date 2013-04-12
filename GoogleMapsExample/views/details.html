@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Details</title>
+    </head>
+    <body class="contentsBody">
+        <div class="contentsDiv">
+            <h1>How about the nitty gritty?</h1>
+            <p>We have the basics covered and the purpose of this demo is to show
+                just how easy it is to work with RobotLegs, but maybe I should explain
+                some design choices in the code.</p>
+            <h2>The Mediators.</h2>
+            <p>I could have done the demo with three Mediators:</p>
+            <p>GoogleMapsMediator, ContentViewMediator, TabViewMediator, mediating the
+                three 'major' views in the demo.</p>
+            <p>In this setup the ContentView, representing the content pane, could listen
+                to events from its view parts (PlainTextView and TipView(s)) and let the
+                ContentMediator handle those events. Let's look at the tips. What we need
+                here is that a click on the tip makes the Googlemap zoom in on the location
+                and show the lay over with some information on the selected pub. The
+                ContentView must listen for the event from the TipView(s) and let its
+                Mediator know about this so the framework can notify the GoogleMapsMediator
+                of the request. Let's say this works but it clutters the code in the
+                ContentView. In comes that nifty feature again where RobotLegs detects
+                new children on the stage. The moment the ContentView adds TipView(s)
+                to the display list, RobotLegs makes sure there is a Mediator (provided
+                we did the mapping!). This makes sense right? The dynamically created
+                TipViewMediators now handle the click event and 'directly' inform the
+                GooglemapsMediator. And yes, if we remove a child, RobotLegs removes
+                the associated Mediator for us.</p>
+            <p>So, what about a Mediator for the SmartInfoWindow? I'll leave that
+                up to you if you don't mind.</p>
+            <h2>The content.</h2>
+            <p>There are so many ways to parse, save and distribute the (xml) content
+                and it is beyond the scope of this demo to discuss this. I decided to
+            use VO's for the markers on the Googlemap because this makes it much
+            easier to work with (this is pretty much the way I would handle a result
+            from a remoting gateway). Yes, you can also skip the VO stuff all
+            together and just parse the tips in the GoogleView, or whatever approach
+            you feel comfortable with. One thing to note on my VO approach: it is
+            not really the Mediator way of doing things. You should be able to (re)use
+            the view component as is in another project. Meaning, using its API,
+            provide it with data and be done with it. The dependency on the VO's
+            prevents this. Just so you know.</p>
+            <h2>The events.</h2>
+            <p>I can hear you thinking, 'do we need all these events'? Technically, no.
+                You could do with a generic event that can carry optional data. Downside:
+                it means casting stuff all over the place and that's one of the things
+                RobotLegs is not promoting. Bottom line: it's a matter of choice.</p>
+            <h2>Final words</h2>
+            <p>Found any flaws in the code? You know a better way to do things? Let me
+                know. Join the RobotLegs AS3 Discussion Group,
+                http://groups.google.com/group/robotlegs, and drop a message.</p>
+            <p>I hope this demo helped you to get going with RobotLegs in a Flash AS3
+                environment. And I wish you happy coding!</p>
+        </div>
+    </body>
+</html>
