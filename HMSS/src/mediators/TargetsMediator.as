@@ -17,23 +17,35 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package mediators {
-	import randori.behaviors.AbstractMediator;
-	import randori.behaviors.SimpleList;
+import eventBus.HMSSBus;
+
+import randori.behaviors.AbstractMediator;
+import randori.behaviors.List;
+import randori.behaviors.SimpleList;
 	import randori.jquery.JQuery;
 	
 	import services.TargetsService;
-	
-	public class TargetsMediator extends AbstractMediator {
+import services.vo.Target;
+
+public class TargetsMediator extends AbstractMediator {
 		
 		[View]
-		public var targetList:SimpleList;
+        public var targetList:List;
 		
 		[Inject] 
 		public var service:TargetsService;
-		
-		override protected function onRegister():void {
+
+        [Inject]
+        public var bus:HMSSBus;
+
+        override protected function onRegister():void {
+            targetList.listChanged.add( handleTargetSelected );
 			service.get().then( handleResult );
 		}
+
+        private function handleTargetSelected( target:Target ):void {
+            bus.targetSelected.dispatch( targetList.selectedItem );
+        }
 		
 		private function handleResult( result:Array ):void {
 			targetList.data = result;

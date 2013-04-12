@@ -1,28 +1,44 @@
 ﻿.hmssApp {
-    -randori-context: startup.DemoContext;
-    -randori-mediator: mediators.IndexMediator;
+    -randori-context: "startup.DemoContext";
+    -randori-mediator: "mediators.IndexMediator";
 }
 
 .viewStack {
-    -randori-behavior: randori.behaviors.ViewStack;
+    -randori-behavior: "randori.behaviors.ViewStack";
 }
 
 .verticalTabs {
-    -randori-behavior: behaviors.VerticalTabs;
+    -randori-behavior: "behaviors.VerticalTabs";
 }
 
 .intel {
-    -randori-mediator: mediators.IntelMediator;
+    -randori-mediator: "mediators.IntelMediator";
 }
 
 .labs {
-    -randori-mediator: mediators.LabsMediator;
+    -randori-mediator: "mediators.LabsMediator";
 }
 
 .targets {
-    -randori-mediator: mediators.TargetsMediator;
+    -randori-mediator: "mediators.TargetsMediator";
+}
+
+.targetDetail {
+    -randori-mediator: "mediators.target.TargetDetail";
+}
+
+.targetLocation {
+    -randori-mediator: "mediators.target.TargetLocation";
 }
 
 .simpleList {
-    -randori-behavior: randori.behaviors.SimpleList;
+    -randori-behavior: "randori.behaviors.SimpleList";
+}
+
+.list {
+    -randori-behavior: "randori.behaviors.List";
+}
+
+.template {
+    -randori-behavior: "randori.behaviors.template.TemplateRenderer";
 }

@@ -19,13 +19,17 @@
 package mediators {
 	import behaviors.VerticalTabs;
 	import behaviors.tabs.MenuItem;
-	
-	import randori.async.Promise;
+
+import eventBus.HMSSBus;
+
+import randori.async.Promise;
 	import randori.behaviors.AbstractMediator;
 	import randori.behaviors.ViewStack;
 import randori.webkit.page.Location;
 import randori.webkit.page.Window;
 import randori.webkit.workers.WorkerLocation;
+
+import services.vo.Target;
 
 public class IndexMediator extends AbstractMediator {
 		
@@ -34,8 +38,11 @@ public class IndexMediator extends AbstractMediator {
 		
 		[View(required="true")]
 		public var menu:VerticalTabs;
-		
-		override protected function onRegister():void {
+
+        [Inject]
+        public var bus:HMSSBus;
+
+        override protected function onRegister():void {
 			var menuItems:Array = new Array(
 				new MenuItem( "Targets", "views/targets.html" ),
 				new MenuItem( "Labs", "views/labs.html" ),
@@ -44,9 +51,33 @@ public class IndexMediator extends AbstractMediator {
 			
 			menu.menuItemSelected.add( menuItemSelected );
 			menu.data = menuItems;
+
+            bus.targetSelected.add( handleTargetSelected );
+            bus.targetClose.add( handleCloseTargetDetail );
+            bus.showTargetLocation.add( handleShowTargetLocation );
 		}
 
-		private function menuItemSelected( menuData:MenuItem ):void  {
+        private function handleShowTargetLocation( target:Target ):void {
+            var promise:Promise = viewStack.pushView( "views/target/targetLocation.html");
+            promise.then( function( result:AbstractMediator ):void {
+                //do something here with the new view if you want
+                result.setViewData( target );
+            } );
+        }
+
+        private function handleCloseTargetDetail():void {
+            viewStack.popView();
+        }
+
+        private function handleTargetSelected( target:Target ):void {
+            var promise:Promise = viewStack.pushView( "views/target/targetDetail.html");
+            promise.then( function( result:AbstractMediator ):void {
+                //do something here with the new view if you want
+                result.setViewData( target );
+            } );
+        }
+
+        private function menuItemSelected( menuData:MenuItem ):void  {
 			viewStack.popView();
 			var promise:Promise = viewStack.pushView(menuData.url);
 			
