@@ -30,8 +30,10 @@ body
 .h-nav{
     margin: auto;
     color: #333;
+    background-color: #f7f7f7;
+    border: none;
     /* border: 2px solid #00FF00; */
-    height: 20px;
+    height: 21px;
 }
 
 .h-nav ul{
@@ -52,11 +54,19 @@ body
     width: 110px;
     display: block;
     top: 0px;
-    border: 1px solid #DDD;
-    border-bottom-width: 0px;
+    border: 2px solid #DDD;
+    /* border-bottom-width: 0px; */
     margin: auto 0 !important;
     padding:0px;
     text-align: center;
+
+    /* CSS 3 elements */
+    webkit-border-top-right-radius:0.50em;
+    -webkit-border-top-left-radius:0.50em;
+    -moz-border-radius-topright:0.50em;
+    -moz-border-radius-topleft:0.50em;
+    border-top-right-radius:0.50em;
+    border-top-left-radius:0.50em;
 }
 
 .h-nav a{
