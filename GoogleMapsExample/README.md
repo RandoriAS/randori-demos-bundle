@@ -1,4 +1,4 @@
-This is the READ.md file.
+This is the README.md file.
 
 More info should go here.
 
