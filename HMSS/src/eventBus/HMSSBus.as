@@ -10,16 +10,19 @@ import randori.signal.SimpleSignal;
  */
 public class HMSSBus {
 
+    [Inject]
     public var targetSelected:SimpleSignal;
+
+    [Inject]
     public var targetClose:SimpleSignal;
+
+    [Inject]
     public var showTargetLocation:SimpleSignal;
+
+    [Inject]
     public var showAllTargetLocations:SimpleSignal;
 
     public function HMSSBus() {
-        this.targetSelected = new SimpleSignal();
-        this.targetClose = new SimpleSignal();
-        this.showTargetLocation = new SimpleSignal();
-        this.showAllTargetLocations = new SimpleSignal();
     }
 }
 }
