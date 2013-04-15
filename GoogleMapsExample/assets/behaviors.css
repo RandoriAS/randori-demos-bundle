@@ -15,3 +15,7 @@
     -randori-mediator: "mediators.GeneralContentMediator";
 
 }
+
+.externalPage {
+    -randori-mediator: "mediators.ExternalPageMediator";
+}
