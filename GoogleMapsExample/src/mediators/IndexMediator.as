@@ -17,7 +17,9 @@ import google.maps.Map;
 
     import google.maps.MapOptions;
 
-    import randori.async.Promise;
+import model.ExternalLink;
+
+import randori.async.Promise;
 
     import randori.behaviors.AbstractMediator;
     import randori.behaviors.ViewStack;
@@ -41,6 +43,7 @@ public class IndexMediator extends AbstractMediator {
 
         override protected function onRegister():void {
             bus.navigationRequest.add( handleNavigationRequest );
+            bus.externalNavigationRequest.add( handleExternalNavigationRequest );
 
             var menuItems:Array = new Array(
                     new MenuItem( "How it works", "views/how.html" ),
@@ -62,11 +65,14 @@ public class IndexMediator extends AbstractMediator {
                 //viewStack.pushView("views/tips.html");
               // viewStack.selectView("views/tips.html");
             }
-            if( navto == "newpage"){
+        }
+
+        private function handleExternalNavigationRequest( extLink:ExternalLink ):void {
+            if( extLink.type == "newPage"){
                 //OPEN NEW PAGE WITH URL
                 Window.console.log('NEW PAGE HIT');
+                Window.open(extLink.destination, extLink.target );
             }
-
         }
 
         private function menuItemSelected( menuData:MenuItem ):void {

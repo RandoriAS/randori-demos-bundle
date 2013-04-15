@@ -1,6 +1,8 @@
 package mediators {
 import eventbus.AppEventsBus;
 
+import model.ExternalLink;
+
 import randori.behaviors.AbstractMediator;
 import randori.jquery.JQuery;
 
@@ -35,8 +37,12 @@ import randori.jquery.JQuery;
         }
 
         private function handleExternalLink():void {
-            var externalLink:String = goToNewPage.data( "newPage" );
-            bus.navigationRequest.dispatch( externalLink );
+            var extLink:ExternalLink = new ExternalLink();
+            extLink.type =  goToNewPage.data( "navto" );
+            extLink.destination =  goToNewPage.data( "destination" );
+            extLink.target =  goToNewPage.data( "target" );
+
+            bus.externalNavigationRequest.dispatch( extLink );
         }
 
 }

@@ -13,6 +13,9 @@ package eventbus {
         [Inject]
         public var navigationRequest:SimpleSignal;
 
+        [Inject]
+        public var externalNavigationRequest:SimpleSignal;
+
         public function AppEventsBus() {
 
         }
