@@ -21,13 +21,17 @@ import randori.jquery.JQuery;
         [View]
         public var goToTips:JQuery;
 
+        /*
+         THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
         [View]
         public var goToNewPage:JQuery;
+        */
 
         override protected function onRegister():void {
             goToTips.click( handleLinkClick );
 
-            goToNewPage.click( handleExternalLink );
+            // THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
+            //goToNewPage.click( handleExternalLink );
         }
 
         private function handleLinkClick():void {
@@ -36,6 +40,8 @@ import randori.jquery.JQuery;
             bus.navigationRequest.dispatch( navto );
         }
 
+        /*
+         THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
         private function handleExternalLink():void {
             var extLink:ExternalLink = new ExternalLink();
             extLink.type =  goToNewPage.data( "navto" );
@@ -44,6 +50,7 @@ import randori.jquery.JQuery;
 
             bus.externalNavigationRequest.dispatch( extLink );
         }
+        */
 
 }
 }

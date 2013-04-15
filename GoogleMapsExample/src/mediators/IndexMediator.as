@@ -78,19 +78,20 @@ public class IndexMediator extends AbstractMediator {
         private function menuItemSelected( menuData:MenuItem ):void {
             viewStack.popView();
 
+            /*
+             THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
             var promise : Promise = viewStack.pushView("views/externalPage.html");
 
             promise.then( function(mediator:AbstractMediator):void {
                 mediator.setViewData( menuData.url )
             } );
+            */
 
-            /*
             var promise:Promise = viewStack.pushView(menuData.url);
 
             promise.then( function( result:AbstractMediator ):void {
                 //do something here with the new view if you want
             } );
-              */
         }
 
         private function showMap():void{

@@ -15,7 +15,10 @@
     -randori-mediator: "mediators.GeneralContentMediator";
 
 }
+/*
+    THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
 
 .externalPage {
     -randori-mediator: "mediators.ExternalPageMediator";
 }
+*/
