@@ -78,6 +78,20 @@ public class IndexMediator extends AbstractMediator {
         }
 
         private function menuItemSelected( menuData:MenuItem ):void  {
+
+            //We want to pop all views: This code is strange due to a compiler bug
+            //TODO: Update this after latest compiler is tested
+            for ( var i:int=0;i<50; i++ ) {
+                var url:String = viewStack.currentViewUrl;
+
+                if ( url ) {
+                    viewStack.popView();
+                } else {
+                    break;
+                }
+
+            }
+
 			viewStack.popView();
 			var promise:Promise = viewStack.pushView(menuData.url);
 			

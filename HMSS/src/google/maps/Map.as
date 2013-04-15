@@ -12,5 +12,13 @@ import randori.webkit.html.HTMLElement;
 public class Map {
     public function Map( element:HTMLElement, options:MapOptions ) {
     }
+
+    public function setTilt(i:Number):void {
+        
+    }
+
+    public function getCenter():LatLng {
+        return null;
+    }
 }
 }

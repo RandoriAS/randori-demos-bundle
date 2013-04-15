@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>HMSS Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
         <!-- Write me down, no, seriously, do it:
 
@@ -31,8 +32,16 @@
         </script>
 
         <script type="text/javascript">
+
+            google.maps.event.addDomListenerOnce(window, 'load',
+                    function() {
+                        if ( window.console ) {
+                            console.log("Map Initialized");
+                        }
+                    });
+
             //Start the randori framework
-            $(function () {
+            jQuery(function () {
                 var randoriApp = new randori.startup.RandoriBootstrap(document);
                 
                 //Passing a true to launch enables debug mode where all request attempt to disallow caching
