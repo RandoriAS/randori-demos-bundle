@@ -19,14 +19,25 @@ import randori.jquery.JQuery;
         [View]
         public var goToTips:JQuery;
 
+        [View]
+        public var goToNewPage:JQuery;
+
         override protected function onRegister():void {
             goToTips.click( handleLinkClick );
 
+            goToNewPage.click( handleExternalLink );
         }
 
         private function handleLinkClick():void {
+
             var navto:String = goToTips.data( "navto" );
             bus.navigationRequest.dispatch( navto );
         }
-    }
+
+        private function handleExternalLink():void {
+            var externalLink:String = goToNewPage.data( "newPage" );
+            bus.navigationRequest.dispatch( externalLink );
+        }
+
+}
 }

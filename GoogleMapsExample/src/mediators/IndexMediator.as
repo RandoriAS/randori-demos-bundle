@@ -23,6 +23,7 @@ import google.maps.Map;
     import randori.behaviors.ViewStack;
     import randori.jquery.JQuery;
 import randori.webkit.html.HTMLElement;
+import randori.webkit.page.Window;
 
 public class IndexMediator extends AbstractMediator {
 
@@ -39,7 +40,7 @@ public class IndexMediator extends AbstractMediator {
         public var bus:AppEventsBus;
 
         override protected function onRegister():void {
-            bus.navigationRequest.add( handleNavtoRequest );
+            bus.navigationRequest.add( handleNavigationRequest );
 
             var menuItems:Array = new Array(
                     new MenuItem( "How it works", "views/how.html" ),
@@ -55,11 +56,15 @@ public class IndexMediator extends AbstractMediator {
 
         }
 
-        private function handleNavtoRequest( navto:String ):void {
+        private function handleNavigationRequest( navto:String ):void {
             if( navto == "tips"){
                 menu.selectedIndex = 1;
                 //viewStack.pushView("views/tips.html");
               // viewStack.selectView("views/tips.html");
+            }
+            if( navto == "newpage"){
+                //OPEN NEW PAGE WITH URL
+                Window.console.log('NEW PAGE HIT');
             }
 
         }
@@ -77,7 +82,7 @@ public class IndexMediator extends AbstractMediator {
         private function showMap():void{
             var mapOptions:MapOptions = new MapOptions();
             mapOptions.center = new LatLng(33.748893,-84.388046);
-            mapOptions.zoom = 8;
+            mapOptions.zoom = 10;
             mapOptions.mapTypeId = "roadmap"; //MapTypeId.ROADMAP;
 
             var newMap:Map = new Map(map[0] as HTMLElement, mapOptions);
