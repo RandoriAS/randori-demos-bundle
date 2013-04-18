@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>HMSS Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <!-- Write me down, no, seriously, do it:
+
+        @randorijs
+
+        -->
+        <!-- Visual Style Sheet -->
+        <link rel="stylesheet" href="assets/css/slick.grid.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/examples.css" type="text/css"/>
+        
+        <!-- Behavior Style Sheet -->
+        <link rel="stylesheet/randori" href="assets/css/behaviors.css" type="text/css"/>
+        
+        <!-- JQuery -->
+        <script type="text/javascript" src="jsLibs/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="jsLibs/jquery.event.drag-2.0.min.js"></script>
+
+        <!-- Slick Grid -->
+        <script type="text/javascript" src="jsLibs/slick.core.js"></script>
+        <script type="text/javascript" src="jsLibs/slick.grid.js"></script>
+
+        <!-- Randori Dependencies -->
+        <script type="text/javascript" src="generated/lib/randori-guice-framework.js"></script>
+        <script type="text/javascript" src="generated/lib/randori-framework.js"></script>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
+        </script>
+
+        <script type="text/javascript">
+            //Start the randori framework
+            jQuery(window).load( function () {
+                var randoriApp = new randori.startup.RandoriBootstrap(document);
+                
+                //Passing a true to launch enables debug mode where all request attempt to disallow caching
+                randoriApp.launch( true );
+            });
+        </script>
+    </head>
+    <body class="slickGridApp">
+        <input type="button" name="load" value="Load" id="load"/>
+        <table width="100%">
+            <tr>
+                <td valign="top" width="50%">
+                    <div id="gridDiv" style="width:600px;height:500px;"></div>
+                </td>
+                <td valign="top">
+                    <h2>Demonstrates:</h2>
+                    <ul>
+                        <li>basic grid with minimal configuration</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
