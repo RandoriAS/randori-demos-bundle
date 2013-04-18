@@ -16,6 +16,7 @@ import google.maps.LatLng;
 import google.maps.Map;
 
     import google.maps.MapOptions;
+import google.maps.Marker;
 
 import model.ExternalLink;
 
@@ -94,15 +95,48 @@ public class IndexMediator extends AbstractMediator {
             } );
         }
 
+    /**
+     * 'Hankook', 32.678125,-83.178297
+     * 'Taqueria Del Sol', 33.811369,-84.43162
+     * 'Thumbs Up Diner', 33.78728,-84.412926
+     * 'Ria's Bluebird Cafe', 33.774903,-84.406575
+     * 'Hoki Japanese Restaurant', 33.872368,-84.457749
+     *
+     *
+     */
+
         private function showMap():void{
+            /*
+            var locations:Array = [
+                ['Hoki Japanese Restaurant', 33.872368, -84.457749],
+                ['Hankook', 33.872368, -84.457749],
+                ['Taqueria Del Sol', 33.811369, -84.43162],
+                ['Thumbs Up Diner', 33.78728, -84.412926],
+                ['Rias Bluebird Cafe', 33.746574, -84.365473]];
+             */
+            var locations:Array = [];
+            locations.push(['Hoki Japanese Restaurant', 33.872368, -84.457749]);
+            locations.push(['Hankook Taqueria', 33.811369, -84.43162]);
+            locations.push(['Taqueria Del Sol', 33.78728, -84.412926]);
+            locations.push(['Rias Bluebird Cafe', 33.746574, -84.365473]);
+            locations.push(['Thumbs Up', 33.774903, -84.406575]);
+
             var mapOptions:MapOptions = new MapOptions();
             mapOptions.center = new LatLng(33.748893,-84.388046);
             mapOptions.zoom = 10;
             mapOptions.mapTypeId = "roadmap"; //MapTypeId.ROADMAP;
 
             var newMap:Map = new Map(map[0] as HTMLElement, mapOptions);
+
+            for (var i:int = 0; i < locations.length; i++) {
+                var loc:Array = locations[i];
+                var config:Object = new Object();
+                config.title = loc[0];
+                config.position = new LatLng(loc[1], loc[2]);
+                config.map = newMap;
+                //config.zIndex = i + 1;
+                var marker:Marker = new Marker(config);
+            }
         }
-
-
     }
 }

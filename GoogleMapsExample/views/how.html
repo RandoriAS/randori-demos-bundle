@@ -6,41 +6,20 @@
     <body class="contentsBody generalContentMediator">
         <div class="contentsDiv">
             <h1>So, let's try and explain how everything works here.</h1>
-            <p>Remember, on <a href='http://www.leifwells.com' target="_blank">github.com/darscan/robotlegs/tree/master</a> you can read
+            <p>Remember, on <a href='https://github.com/RandoriAS' target="_blank">github.com/RandoriAS</a> you can read
                 more about the framework.</p>
             <h2>First things first.</h2>
-            <p>The project is a FlashBuilder AS3-project using SDK4.0.0 build 7219.
-                It is set to build in /web/assets/swf/ and opens the index.html in /web
-                if you debug the project. The index.html embeds a loader.swf and it loads
-                the swf we compile with FlashBuilder. The View (component) classes in
-                the code embed graphical assets (movieclips) from fla files (Flash CS4).
-                These are set to publish in src/main/flash/assets/swf/. If you change
-                things in the fla's, compile in the Flash IDE and debug the project in
-                FlashBuilder to see the changes. The Googlemap uses a custom marker.
-                Its View class embeds a .png that resides in src/main/flash/assets/bitmaps/.
-                One thing to mention: I used the word component. No, I don't mean a full
-                fledged AS3 Component. In the contexts of the framework we merely use the
-                word component to make a distinction between the Mediator and the view
-                component it mediates.</p>
-            <p>The basic idea is to show how the framework
-                is used to consume content like xml and a service. And (of course) how to
-                set and change the state using events. On the Googlemap I show some pubs
-                in our country with corresponding entries under the 'Tips' tab in the main
-                navigation. Clicking on one of the markers triggers an event in the View
-                component and its Mediator handles the event by calling the (Googlemaps API)
-                service. The Mediator receives the result from the service and changes the
-                state of the View component via its API. To demonstrate how to 'communicate'
-                between the main content pane and the Googlemap (these two 'components' are
-                obviously unaware of each other) the tips will 'trigger' an event when clicked
-                and cause the Googlemap to change its state.<br/><br/>Within the main content
-                pane the main navigation is a seperate component. It merely triggers an event
-                when one of the tabs is clicked. The event carries an id and the Mediator
-                that 'governs' the content view component uses this id to show the correct
-                content from the xml.</p>
-            <p>Ok, that pretty much wraps it up. Last thing to mention: this is a work in
-                progress so I'll probably refactor some things, so check back if you want
-                to have the latest version. And now:<p>
-                <span class='link'><a id="goToTips" href='#' data-navto="tips">Show me the best pubs >></a></span>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu lacus sed nulla volutpat imperdiet. Maecenas erat risus, dictum quis bibendum fringilla, pretium non libero. Curabitur aliquet posuere metus sed pharetra. Integer lacus massa, vehicula non ultricies sed, vestibulum in mauris. In a justo at est cursus vehicula. Donec tincidunt tortor in velit eleifend malesuada. Suspendisse justo ipsum, aliquam eget placerat at, accumsan eu ipsum. In consequat, justo at euismod euismod, nulla ante commodo massa, vel gravida augue nibh lobortis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In vestibulum vestibulum nunc, non accumsan velit egestas ac. Curabitur sed massa ligula, et porttitor sem. Integer fringilla fermentum pharetra. Duis in tristique turpis. Phasellus ultrices libero nec neque consectetur porttitor. Aenean id dolor sit amet velit feugiat pharetra at sed felis. Vestibulum luctus interdum rhoncus.
+            </p>
+            <p>
+                Pellentesque ac purus odio. Nam fringilla, magna quis sagittis adipiscing, nisl risus scelerisque leo, vitae aliquam purus nisl in nibh. Quisque sagittis massa a elit malesuada tincidunt. Aenean malesuada quam sodales lacus dictum accumsan. Proin vestibulum odio fringilla arcu tempor ultricies. Nulla lobortis varius ante non ultricies. Donec consectetur, urna quis dignissim malesuada, enim mauris congue nulla, hendrerit semper neque tellus vitae nibh. Pellentesque tincidunt nisl eu purus volutpat ac tristique justo porttitor. Etiam a ante augue, fringilla tristique massa. Phasellus justo justo, tempus vitae consequat id, auctor mollis augue. Aliquam sit amet venenatis leo. Sed felis tortor, vulputate facilisis varius nec, molestie id magna.
+            </p>
+            <p>
+                Ut aliquet scelerisque magna, ut vestibulum turpis congue ut. Nulla vel odio et lacus tincidunt accumsan. Praesent ipsum lectus, feugiat quis condimentum tempus, ultricies quis sem. Pellentesque et volutpat tortor. In sit amet lorem justo, ac imperdiet ligula. Quisque at ipsum non nulla malesuada blandit aliquet eget neque. Sed vel neque eget justo tempus blandit sed rutrum ipsum. Curabitur vitae odio id nisl vestibulum mattis eget id lorem. Phasellus id eros justo, a accumsan enim. Nulla libero eros, tempus id mattis a, vestibulum vitae lectus. Donec et purus a metus cursus blandit at sed tortor. Mauris vitae ligula nunc.
+             And now:
+            </p>
+             <span class='link'><a id="goToTips" href='#' data-navto="tips">Show me Leif's favorite eateries! >></a></span>
         </div>
     </body>
 </html>
