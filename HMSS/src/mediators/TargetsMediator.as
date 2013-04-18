@@ -21,10 +21,8 @@ import eventBus.HMSSBus;
 
 import randori.behaviors.AbstractMediator;
 import randori.behaviors.List;
-import randori.behaviors.SimpleList;
-	import randori.jquery.JQuery;
-	
-	import services.TargetsService;
+
+import services.TargetsService;
 import services.vo.Target;
 
 public class TargetsMediator extends AbstractMediator {

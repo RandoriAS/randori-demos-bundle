@@ -4,16 +4,12 @@ import eventBus.HMSSBus;
 import google.maps.LatLng;
 import google.maps.Map;
 import google.maps.MapOptions;
-import google.maps.MapTypeId;
 import google.maps.Marker;
 
 import randori.behaviors.AbstractMediator;
-import randori.behaviors.template.TemplateRenderer;
 import randori.jquery.Event;
 import randori.jquery.JQuery;
-import randori.jquery.JQueryStatic;
 import randori.webkit.html.HTMLElement;
-import randori.webkit.html.HTMLLinkElement;
 
 import services.vo.Target;
 
@@ -65,6 +61,7 @@ public class TargetLocation extends AbstractMediator {
         }
         mapOptions.mapTypeId = "satellite"; //MapTypeId.ROADMAP;
 
+
         var newMap:Map = new Map(map[0] as HTMLElement, mapOptions);
         newMap.setTilt(45);
 
@@ -74,7 +71,7 @@ public class TargetLocation extends AbstractMediator {
             config.map = newMap;
             config.title = "Last known Location";
 
-            var marker:Marker = new google.maps.Marker( config );
+            var marker:Marker = new Marker( config );
         }
 
     }
