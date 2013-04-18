@@ -1,5 +1,5 @@
-/html-template/
-/.idea/
-/generated/
-/out/
-/*.iml
+**/html-template/
+**/.idea/
+**/generated/
+**/out/
+**/*.iml
