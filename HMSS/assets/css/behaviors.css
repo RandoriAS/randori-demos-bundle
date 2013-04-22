@@ -3,6 +3,16 @@
     -randori-mediator: "mediators.IndexMediator";
 }
 
+.siteHeader {
+    -randori-behavior: "behaviors.SiteHeader";
+    -randori-fragment: "fragment/siteHeader.html";
+}
+
+.mediator-loginArea
+{
+    -randori-mediator: "mediators.login.LoginMediator";
+}
+
 .viewStack {
     -randori-behavior: "randori.behaviors.ViewStack";
 }
