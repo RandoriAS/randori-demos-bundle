@@ -1,12 +1,10 @@
 package mediators {
-import eventbus.AppEventsBus;
+    import eventbus.AppEventsBus;
+    //import model.ExternalLink;
+    import randori.behaviors.AbstractMediator;
+    import randori.jquery.JQuery;
 
-import model.ExternalLink;
-
-import randori.behaviors.AbstractMediator;
-import randori.jquery.JQuery;
-
-/**
+    /**
      * Created with IntelliJ IDEA.
      * User: leifwells
      * Date: 4/12/13
@@ -52,5 +50,5 @@ import randori.jquery.JQuery;
         }
         */
 
-}
+    }
 }

@@ -24,7 +24,8 @@ import randori.async.Promise;
 
     import randori.behaviors.AbstractMediator;
     import randori.behaviors.ViewStack;
-    import randori.jquery.JQuery;
+import randori.jquery.Event;
+import randori.jquery.JQuery;
 import randori.webkit.html.HTMLElement;
 import randori.webkit.page.Window;
 
@@ -37,14 +38,17 @@ public class IndexMediator extends AbstractMediator {
         public var menu:HorizontalTabs;
 
         [View]
-        public var map:JQuery;
+        public var map:Map;
 
         [Inject]
         public var bus:AppEventsBus;
 
+        public var locations:Array;
+
         override protected function onRegister():void {
             bus.navigationRequest.add( handleNavigationRequest );
             bus.externalNavigationRequest.add( handleExternalNavigationRequest );
+
 
             var menuItems:Array = new Array(
                     new MenuItem( "How it works", "views/how.html" ),
@@ -55,6 +59,13 @@ public class IndexMediator extends AbstractMediator {
 
             menu.menuItemSelected.add( menuItemSelected );
             menu.data = menuItems;
+
+            locations = [];
+            locations.push(['Hoki Japanese Restaurant', 33.872368, -84.457749]);
+            locations.push(['Hankook Taqueria', 33.811369, -84.43162]);
+            locations.push(['Taqueria Del Sol', 33.78728, -84.412926]);
+            locations.push(['Rias Bluebird Cafe', 33.746574, -84.365473]);
+            locations.push(['Thumbs Up', 33.774903, -84.406575]);
 
            showMap();
 
@@ -95,16 +106,6 @@ public class IndexMediator extends AbstractMediator {
             } );
         }
 
-    /**
-     * 'Hankook', 32.678125,-83.178297
-     * 'Taqueria Del Sol', 33.811369,-84.43162
-     * 'Thumbs Up Diner', 33.78728,-84.412926
-     * 'Ria's Bluebird Cafe', 33.774903,-84.406575
-     * 'Hoki Japanese Restaurant', 33.872368,-84.457749
-     *
-     *
-     */
-
         private function showMap():void{
             /*
             var locations:Array = [
@@ -114,26 +115,41 @@ public class IndexMediator extends AbstractMediator {
                 ['Thumbs Up Diner', 33.78728, -84.412926],
                 ['Rias Bluebird Cafe', 33.746574, -84.365473]];
              */
-            var locations:Array = [];
-            locations.push(['Hoki Japanese Restaurant', 33.872368, -84.457749]);
-            locations.push(['Hankook Taqueria', 33.811369, -84.43162]);
-            locations.push(['Taqueria Del Sol', 33.78728, -84.412926]);
-            locations.push(['Rias Bluebird Cafe', 33.746574, -84.365473]);
-            locations.push(['Thumbs Up', 33.774903, -84.406575]);
 
             var mapOptions:MapOptions = new MapOptions();
             mapOptions.center = new LatLng(33.748893,-84.388046);
             mapOptions.zoom = 10;
             mapOptions.mapTypeId = "roadmap"; //MapTypeId.ROADMAP;
 
-            var newMap:Map = new Map(map[0] as HTMLElement, mapOptions);
+            map = new Map(map[0] as HTMLElement, mapOptions);
 
             for (var i:int = 0; i < locations.length; i++) {
                 var loc:Array = locations[i];
                 var config:Object = new Object();
                 config.title = loc[0];
                 config.position = new LatLng(loc[1], loc[2]);
-                config.map = newMap;
+                config.map = map;
+                //config.zIndex = i + 1;
+                var marker:Marker = new Marker(config);
+            }
+        }
+
+        private function centerMapOnPin( event:Event ):void{
+            var mapOptions:MapOptions = new MapOptions();
+            // USE THE EVENT TO SET THE CENTER OF THE MAP
+            //mapOptions.center = new LatLng(33.748893,-84.388046);
+            //mapOptions.center = new LatLng(event.loc);
+            mapOptions.zoom = 8;
+            mapOptions.mapTypeId = "roadmap"; //MapTypeId.ROADMAP;
+
+            map = new Map(map[0] as HTMLElement, mapOptions);
+
+            for (var i:int = 0; i < locations.length; i++) {
+                var loc:Array = locations[i];
+                var config:Object = new Object();
+                config.title = loc[0];
+                config.position = new LatLng(loc[1], loc[2]);
+                config.map = map;
                 //config.zIndex = i + 1;
                 var marker:Marker = new Marker(config);
             }

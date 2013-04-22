@@ -15,6 +15,11 @@
     -randori-mediator: "mediators.GeneralContentMediator";
 
 }
+
+.tipsPage {
+    -randori-mediator: "mediators.TipsMediator";
+}
+
 /*
     THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
 
