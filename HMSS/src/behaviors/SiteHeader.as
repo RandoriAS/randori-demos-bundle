@@ -1,24 +1,31 @@
+/***
+ * Copyright 2013 LTN Consulting, Inc. /dba Digital Primates®
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *
+ * @author Ben Schmidtke <bschmidtke@digitalprimates.net>
+ */
+
 package behaviors
 {
-	import eventBus.HMSSBus;
-
 	import models.user.User;
 
 	import randori.behaviors.AbstractBehavior;
 	import randori.jquery.JQuery;
 
-	/**
-	 * Created with IntelliJ IDEA.
-	 * User: bschmidtke
-	 * Date: 4/19/13
-	 * Time: 10:41 AM
-	 * To change this template use File | Settings | File Templates.
-	 */
 	public class SiteHeader extends AbstractBehavior
 	{
-
-		[Inject]
-		public var evtBus:HMSSBus;
 
 		[View]
 		public var userName:JQuery;
@@ -28,12 +35,7 @@ package behaviors
 			userName.text("Welcome: " + nameStr);
 		}
 
-		public function noUserLoggedIn():void
-		{
-			userName.text("Not Signed In.");
-		}
-
-		protected function currentUser_changeHandler( usr:User ):void
+		public function showUser( usr:User ):void
 		{
 			if( usr != null )
 			{
@@ -45,15 +47,14 @@ package behaviors
 			}
 		}
 
-		override protected function onRegister():void
+		public function noUserLoggedIn():void
 		{
-			evtBus.userChanged.add( currentUser_changeHandler );
+			userName.text("Not Signed In.");
 		}
 
 		public function SiteHeader()
 		{
 			super();
 		}
-
 	}
 }
