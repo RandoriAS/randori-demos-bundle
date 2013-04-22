@@ -17,22 +17,26 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package mediators {
+	import behaviors.SiteHeader;
 	import behaviors.VerticalTabs;
 	import behaviors.tabs.MenuItem;
 
-import eventBus.HMSSBus;
+	import eventBus.HMSSBus;
 
-import randori.async.Promise;
+	import models.AppModel;
+	import models.user.User;
+
+	import randori.async.Promise;
 	import randori.behaviors.AbstractMediator;
 	import randori.behaviors.ViewStack;
-import randori.webkit.page.Location;
-import randori.webkit.page.Window;
-import randori.webkit.workers.WorkerLocation;
 
-import services.vo.Target;
+	import services.vo.Target;
 
-public class IndexMediator extends AbstractMediator {
-		
+	public class IndexMediator extends AbstractMediator {
+
+		[View(required="true")]
+		public var header:SiteHeader;
+
 		[View(required="true")] 
 		public var viewStack:ViewStack;
 		
@@ -42,19 +46,60 @@ public class IndexMediator extends AbstractMediator {
         [Inject]
         public var bus:HMSSBus;
 
-        override protected function onRegister():void {
+		[Inject]
+		public var appModel:AppModel;
+
+        override protected function onRegister():void
+		{
+			if( appModel.currentUser == null )
+			{
+				promptLogin();
+			}
+			else
+			{
+				initializeMenu();
+			}
+		}
+
+		protected function initializeMenu():void
+		{
 			var menuItems:Array = new Array(
-				new MenuItem( "Targets", "views/targets.html" ),
-				new MenuItem( "Labs", "views/labs.html" ),
-				new MenuItem( "Intel", "views/intel.html"  )
+					new MenuItem( "Targets", "views/targets.html" ),
+					new MenuItem( "Labs", "views/labs.html" ),
+					new MenuItem( "Intel", "views/intel.html"  ) ,
+					new MenuItem( "Tasks", "views/tasks.html"  )
 			);
-			
+
 			menu.menuItemSelected.add( menuItemSelected );
 			menu.data = menuItems;
 
-            bus.targetSelected.add( handleTargetSelected );
-            bus.targetClose.add( handleCloseTargetDetail );
-            bus.showTargetLocation.add( handleShowTargetLocation );
+			bus.targetSelected.add( handleTargetSelected );
+			bus.targetClose.add( handleCloseTargetDetail );
+			bus.showTargetLocation.add( handleShowTargetLocation );
+		}
+
+		protected function promptLogin():void
+		{
+			viewStack.pushView( "views/login/login.html");
+
+			bus.loginSuccess.add( handleLoginSuccess );
+			bus.loginSuccess.add( handleLoginFailure );
+
+			// TODO: Add remove
+		}
+
+		protected function handleLoginSuccess( usr:User ):void
+		{
+			appModel.currentUser = usr;
+
+			viewStack.popView();
+
+			initializeMenu();
+		}
+
+		protected function handleLoginFailure( reason:String ):void
+		{
+
 		}
 
         private function handleShowTargetLocation( target:Target ):void {
@@ -100,7 +145,8 @@ public class IndexMediator extends AbstractMediator {
 			} );
 		}
 		
-		public function IndexMediator() {
+		public function IndexMediator()
+		{
 			super();
 		}
 	}

@@ -1,8 +1,6 @@
 package services.parser {
 import randori.service.parser.AbstractParser;
 
-import services.vo.Target;
-
 /**
  * Created with IntelliJ IDEA.
  * User: mlabriola

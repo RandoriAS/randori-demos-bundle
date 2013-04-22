@@ -19,11 +19,10 @@
 package services {
 	import randori.async.Promise;
 	import randori.service.AbstractService;
-	import randori.service.ServiceConfig;
 	import randori.webkit.xml.XMLHttpRequest;
-	
+
 	import services.parser.GenericJsonParser;
-	
+
 	public class LabService extends AbstractService {
 		
 		private var targets:GenericJsonParser;

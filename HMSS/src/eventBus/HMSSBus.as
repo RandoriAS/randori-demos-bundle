@@ -1,7 +1,7 @@
 package eventBus {
-import randori.signal.SimpleSignal;
+	import randori.signal.SimpleSignal;
 
-/**
+	/**
  * Created with IntelliJ IDEA.
  * User: mlabriola
  * Date: 4/11/13
@@ -21,6 +21,15 @@ public class HMSSBus {
 
     [Inject]
     public var showAllTargetLocations:SimpleSignal;
+
+	[Inject]
+	public var userChanged:SimpleSignal;
+
+	[Inject]
+	public var loginSuccess:SimpleSignal;
+
+	[Inject]
+	public var loginFailure:SimpleSignal;
 
     public function HMSSBus() {
     }

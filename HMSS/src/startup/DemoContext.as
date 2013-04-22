@@ -20,12 +20,8 @@ package startup {
 import eventBus.HMSSBus;
 
 import guice.GuiceModule;
-	import guice.binding.Binder;
-	import guice.binding.Scope;
-	
-	import randori.styles.StyleExtensionManager;
-
-import services.TargetsService;
+import guice.binding.Binder;
+import guice.binding.Scope;
 
 public class DemoContext extends GuiceModule {
 		

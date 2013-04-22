@@ -17,12 +17,8 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package mediators {
-	import randori.behaviors.AbstractMediator;
+import randori.behaviors.AbstractMediator;
 import randori.behaviors.SimpleList;
-import randori.jquery.JQuery;
-import randori.webkit.page.Console;
-import randori.webkit.page.Location;
-import randori.webkit.page.Window;
 
 import services.LabService;
 
