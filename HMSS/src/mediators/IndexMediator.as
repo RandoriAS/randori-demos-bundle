@@ -51,6 +51,9 @@ package mediators {
 
         override protected function onRegister():void
 		{
+
+			bus.userChanged.add( currentUser_changeHandler );
+
 			if( appModel.currentUser == null )
 			{
 				promptLogin();
@@ -92,6 +95,11 @@ package mediators {
 			viewStack.popView();
 
 			initializeMenu();
+		}
+
+		protected function currentUser_changeHandler( usr:User ):void
+		{
+			header.showUser( usr );
 		}
 
         private function handleShowTargetLocation( target:Target ):void {

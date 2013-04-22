@@ -19,8 +19,6 @@
 
 package behaviors
 {
-	import eventBus.HMSSBus;
-
 	import models.user.User;
 
 	import randori.behaviors.AbstractBehavior;
@@ -28,9 +26,6 @@ package behaviors
 
 	public class SiteHeader extends AbstractBehavior
 	{
-
-		[Inject]
-		public var evtBus:HMSSBus;
 
 		[View]
 		public var userName:JQuery;
@@ -40,12 +35,7 @@ package behaviors
 			userName.text("Welcome: " + nameStr);
 		}
 
-		public function noUserLoggedIn():void
-		{
-			userName.text("Not Signed In.");
-		}
-
-		protected function currentUser_changeHandler( usr:User ):void
+		public function showUser( usr:User ):void
 		{
 			if( usr != null )
 			{
@@ -57,15 +47,14 @@ package behaviors
 			}
 		}
 
-		override protected function onRegister():void
+		public function noUserLoggedIn():void
 		{
-			evtBus.userChanged.add( currentUser_changeHandler );
+			userName.text("Not Signed In.");
 		}
 
 		public function SiteHeader()
 		{
 			super();
 		}
-
 	}
 }
