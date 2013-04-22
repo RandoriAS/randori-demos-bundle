@@ -12,7 +12,9 @@ public class Column {
     public var id:String;
     public var name:String;
     public var field:String;
-    public function Column( id:String, name:String, field:String ) {
+    public var formatter:*;
+
+    public function Column( id:String, name:String, field:String, formatter:* = null ) {
     }
 }
 }

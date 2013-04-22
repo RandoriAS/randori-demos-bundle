@@ -4,6 +4,8 @@ package behaviors
 	import Slick.Grid;
 	import Slick.Options;
 
+	import formatters.tasks.PriorityFormatter;
+
 	import randori.behaviors.AbstractBehavior;
 
 	/**
@@ -63,6 +65,11 @@ package behaviors
 		 */
 		private var gridInitialized:Boolean = false;
 
+		/**
+		 * formatter for the priority column
+		 */
+		private var priorityFormatter:PriorityFormatter;
+
 		//----------------------------------------------------------------------------
 		//
 		// Methods
@@ -108,7 +115,7 @@ package behaviors
 		{
 			var taskNameColumn:Column = new Column("taskNameColumn", "Task", "taskName");
 			var assignedAgentColumn:Column = new Column("assignedColumn", "Agent Assigned", "assignedId" );
-			var priorityColumn:Column = new Column("priorityColumn", "Priority", "priority" );
+			var priorityColumn:Column = new Column("priorityColumn", "Priority", "priority", this.priorityFormatter.format);
 
 			var columns:Array = [taskNameColumn, assignedAgentColumn, priorityColumn];
 
@@ -127,8 +134,9 @@ package behaviors
 		/**
 		 * Constructor
 		 */
-		public function TasksGrid()
+		public function TasksGrid(priorityFormatter:PriorityFormatter)
 		{
+			this.priorityFormatter = priorityFormatter;
 		}
 	}
 }
