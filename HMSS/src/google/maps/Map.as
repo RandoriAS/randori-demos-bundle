@@ -1,24 +1,36 @@
-package google.maps {
-import randori.webkit.html.HTMLElement;
-
-/**
- * Created with IntelliJ IDEA.
- * User: mlabriola
- * Date: 4/11/13
- * Time: 3:31 PM
- * To change this template use File | Settings | File Templates.
+/***
+ * Copyright 2013 LTN Consulting, Inc. /dba Digital Primates®
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *
+ * @author Michael Labriola <labriola@digitalprimates.net>
  */
-[JavaScript(export="false",name="google.maps.Map")]
-public class Map {
-    public function Map( element:HTMLElement, options:MapOptions ) {
-    }
 
-    public function setTilt(i:Number):void {
-        
-    }
+package google.maps {
+	import randori.webkit.html.HTMLElement;
 
-    public function getCenter():LatLng {
-        return null;
-    }
-}
+	[JavaScript(export="false",name="google.maps.Map")]
+	public class Map {
+		public function Map( element:HTMLElement, options:MapOptions ) {
+		}
+
+		public function setTilt(i:Number):void {
+
+		}
+
+		public function getCenter():LatLng {
+		return null;
+		}
+	}
 }
