@@ -37,6 +37,9 @@ package mediators.login {
 		[View]
 		public var loginButton:JQuery;
 
+		[View]
+		public var loginErrorTxt:JQuery;
+
 		[Inject]
 		public var loginService:AgentService;
 
@@ -47,7 +50,6 @@ package mediators.login {
 			var passCode:String = passwordInput.val();
 
 			loginService.login(codeName, passCode).then( loginSuccess, loginFailure );
-
 		}
 
 		protected function loginSuccess( data:User )
@@ -57,9 +59,7 @@ package mediators.login {
 
 		protected function loginFailure( data:Object )
 		{
-			// hidden login text, enable on failure
-			// login count
-			//evtBus.loginFailure.dispatch( usr );
+			loginErrorTxt.show();
 		}
 
 		override protected function onRegister():void
@@ -67,6 +67,7 @@ package mediators.login {
 			super.onRegister();
 
 			loginButton.click( loginButton_clickHandler );
+			loginErrorTxt.hide();
 		}
 
 		public function LoginMediator()

@@ -3,21 +3,21 @@
         <title></title>
     </head>
     <body>
-    <div id="loginScreen" class="tab-content loginArea mediator-loginArea login-background">
-        <div class="loginMain">
-            <div class="userNameRow">
-                <label class="userNameTxt">Codename: </label>
+    <div id="loginScreen" class="tab-content login-area mediator-login-area login-background">
+        <div class="login-main">
+            <div class="username-row">
+                <label class="username-txt">Codename: </label>
                 <input id="userNameInput" name="user_name" class="username-field" autocomplete="on" />
             </div>
-            <div class="passcodeRow">
-                <label class="passwordTxt">Passcode: </label>
+            <div class="passcode-row">
+                <label class="password-txt">Passcode: </label>
                 <input id="passwordInput"  name="password" type="password" class="password-field" autocomplete="on" value="" />
             </div>
-            <div class="loginBtnRow">
+            <div class="login-btn-row">
                 <a href="#">
                     <div id="loginButton" class="login-button">login</div>
                 </a>
-                <label class="loginErrorTxt">Code Name / Password is Incorrect. </label>
+                <label id="loginErrorTxt" class="login-error-msg">Codename / Passcode is Incorrect.</label>
             </div>
         </div>
     </div>

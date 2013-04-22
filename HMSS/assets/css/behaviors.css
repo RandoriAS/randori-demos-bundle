@@ -8,7 +8,7 @@
     -randori-fragment: "fragment/siteHeader.html";
 }
 
-.mediator-loginArea
+.mediator-login-area
 {
     -randori-mediator: "mediators.login.LoginMediator";
 }

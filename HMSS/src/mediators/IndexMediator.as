@@ -83,9 +83,6 @@ package mediators {
 			viewStack.pushView( "views/login/login.html");
 
 			bus.loginSuccess.add( handleLoginSuccess );
-			bus.loginSuccess.add( handleLoginFailure );
-
-			// TODO: Add remove
 		}
 
 		protected function handleLoginSuccess( usr:User ):void
@@ -95,11 +92,6 @@ package mediators {
 			viewStack.popView();
 
 			initializeMenu();
-		}
-
-		protected function handleLoginFailure( reason:String ):void
-		{
-
 		}
 
         private function handleShowTargetLocation( target:Target ):void {
