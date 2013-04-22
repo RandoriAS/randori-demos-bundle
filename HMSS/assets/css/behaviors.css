@@ -41,6 +41,14 @@
     -randori-mediator: "mediators.target.TargetLocation";
 }
 
+.tasks {
+    -randori-mediator: "mediators.TasksMediator";
+}
+
+.behavior-tasksgrid {
+    -randori-behavior: "behaviors.TasksGrid";
+}
+
 .simpleList {
     -randori-behavior: "randori.behaviors.SimpleList";
 }
