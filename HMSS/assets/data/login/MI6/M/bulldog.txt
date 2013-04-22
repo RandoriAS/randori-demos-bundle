@@ -1,7 +1,7 @@
 {
 	"firstName": "Sir Miles",
 	"lastName": "Messervy",
-	"role": "MI6",
+	"role": "admin",
 	"codeName": "M",
 	"password": "bulldog"
 }
