@@ -19,7 +19,7 @@
 package mediators {
 	import randori.behaviors.AbstractMediator;
 	import randori.jquery.JQuery;
-	
+
 	public class IntelMediator extends AbstractMediator {
 		
 		[View]
