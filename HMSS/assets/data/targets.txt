@@ -28,12 +28,39 @@
     },
 	{
 		"name": "Auric Goldfinger",
-		"image": "assets/images/villains/unknown.jpg",
+		"image": "assets/images/villains/Goldfinger_small.jpg",
 		"lastKnownLocation": "Fort Knox, Kentucky",
 		"status": "Deceased",
 		"description": "In the novel, Auric Goldfinger is a 42-year-old expatriate from Riga, Latvia, who emigrated in 1937 at the age of 20. He is 5 feet (152 cm) tall, has blue eyes, red hair, and a passion for his tan. Goldfinger is obsessed with gold, going so far as to have yellow-bound erotic photographs, and have his lovers painted head to toe in gold so that he can make love to gold. (He leaves an area near the spine unpainted, but painting this area also is what kills Jill Masterton, as in the film). He is also a jeweller, a metallurgist, and a smuggler.",
 		"latitude":37.8928,
 		"longitude":-85.9747
+	},
+	{
+		"name": "Emilio Largo",
+		"image": "assets/images/villains/emiliolargo_sm.jpg",
+		"lastKnownLocation": "Côte d'Azur, France",
+		"status": "Deceased",
+		"description": "A ruthless Neapolitan black marketeer and fence who moved to riskier and more profitable ventures on the international crime scene after five years smuggling from Tangiers and five years of master-minding big jewel robberies on French Riviera.",
+		"latitude":44.0764,
+		"longitude":5.9745
+	},
+	{
+		"name": "Olivier Cesari (a.k.a. Le Gerant)",
+		"image": "assets/images/villains/unknown.jpg",
+		"lastKnownLocation": "Corsica, France",
+		"status": "Deceased",
+		"description": "The blind leader of The Union crime syndicate, a man with almost mystical power. Proceed with caution!",
+		"latitude":42.1500,
+		"longitude":9.0833
+	},
+	{
+		"name": "Dr. Kananga (a.k.a. Mr. Big)",
+		"image": "assets/images/villains/Dr_Kananga_sm.jpg",
+		"lastKnownLocation": "Montego Bay, Jamaica",
+		"status": "Deceased",
+		"description": "According to M, Mr. Big is one of the most powerful criminal figures in the world. Mr. Big's name is actually an acronym for Buonapart Ignace Gallia, his real name. Big's past is shrouded in mystery, although it is known that he was born in Haiti and is half French. Following the Second World War, he was supposedly trained in Moscow as a Soviet agent and is a prominent member of SMERSH.",
+		"latitude":18.4667,
+		"longitude":-77.9167
 	},
     {
         "name": "Jaws",
@@ -44,6 +71,15 @@
         "latitude":null,
         "longitude":null
     },
+  	{
+		"name": "General Chang",
+		"image": "assets/images/villains/unknown.jpg",
+		"lastKnownLocation": "Hong Kong, China",
+		"status": "Arrested",
+		"description": "Bond and Chinese intelligence agent Wai Lin discover the theft of stealth materials and Chang's role in the scheme. They alert Beijing, and Chang is taken into custody.",
+		"latitude":22.3000,
+		"longitude":114.1667
+	},
 	{
 		"name": "Le Chiffre",
 		"image": "assets/images/villains/Le_Chiffre.jpg",
