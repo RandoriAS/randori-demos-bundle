@@ -17,14 +17,14 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package services {
-import randori.async.Promise;
-import randori.service.AbstractService;
-import randori.service.ServiceConfig;
-import randori.webkit.xml.XMLHttpRequest;
+	import randori.async.Promise;
+	import randori.service.AbstractService;
+	import randori.service.ServiceConfig;
+	import randori.webkit.xml.XMLHttpRequest;
 
-import services.parser.GenericJsonParser;
+	import services.parser.GenericJsonParser;
 
-public class TargetsService extends AbstractService {
+	public class TargetsService extends AbstractService {
 		
 		private var config:ServiceConfig;
 		private var targets:GenericJsonParser;

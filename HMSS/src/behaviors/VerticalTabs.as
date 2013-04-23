@@ -17,14 +17,14 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package behaviors {
-import behaviors.tabs.MenuItem;
+	import behaviors.tabs.MenuItem;
 
-import randori.behaviors.List;
-import randori.dom.DomWalker;
-import randori.jquery.JQuery;
-import randori.signal.SimpleSignal;
+	import randori.behaviors.List;
+	import randori.dom.DomWalker;
+	import randori.jquery.JQuery;
+	import randori.signal.SimpleSignal;
 
-public class VerticalTabs extends List {
+	public class VerticalTabs extends List {
 		
 		public var menuItemSelected:SimpleSignal;
 		

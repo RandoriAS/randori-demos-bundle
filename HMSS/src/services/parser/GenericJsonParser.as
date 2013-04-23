@@ -17,9 +17,9 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package services.parser {
-import randori.service.parser.AbstractParser;
+	import randori.service.parser.AbstractParser;
 
-public class GenericJsonParser extends AbstractParser {
+	public class GenericJsonParser extends AbstractParser {
 
 		public function parseResult(result:Object):Array {
 			//Here we are just going to parse the result into Json.
