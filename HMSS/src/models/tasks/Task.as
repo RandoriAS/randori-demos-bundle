@@ -13,46 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- *
- * @author Mike Labriola <labriola@digitalprimates.net>
+ * Created with IntelliJ IDEA.
+ * Date: 4/23/13
+ * Time: 5:24 PM
+ * @author Steve Zimmers <szimmers@digitalprimates.net>
  */
-
-package Slick {
-
-	import randori.jquery.JQuery;
-
-	[JavaScript(export="false")]
-	public class Grid {
-
-		public function setData(data:Array) : void
-		{
-		}
-
-		public function updateRowCount() : void
-		{
-		}
-
-		public function setColumns(columns:Array) : void
-		{
-		}
-
-		public function setOptions(options:Options) : void
-		{
-		}
-
-		public function init() : void
-		{
-		}
-
-		public function render() : void
-		{
-		}
-
-		public function destroy() : void
-		{
-		}
-
-		public function Grid(gridDiv:JQuery, data:Array, columns:Array, options:Options) {
-		}
+package models.tasks
+{
+	[JavaScript(export="false", name="Object", mode="json")]
+	public class Task
+	{
+		public var taskName:String;
+		public var assignedId:String;
+		public var priority:String;
 	}
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  *
- * @author Michael Labriola <labriola@digitalprimates.net>
+ * @author Steve Zimmers <szimmers@digitalprimates.net>
  */
 
 package mediators

@@ -4,8 +4,46 @@
     <title></title>
 </head>
 
-<body class="tab-content tasks">
-<div id="grid" class="behavior-tasksgrid"  > </div>
+<body class="tab-content tasks-admin">
+	<div id="grid" class="tasksgrid"  > </div>
+
+	<br/>
+
+	<input id="addBtn" value="Add" type="button" />
+
+	<form id="newTaskForm" action="" >
+		<fieldset>
+		<legend>Add New Task</legend>
+		Task: <input id="taskName" type="text" size="50" />
+		<br/>
+		Agent assigned:
+			<select id="agent" >
+				<option value="001">001</option>
+				<option value="002">002</option>
+				<option value="003">003</option>
+				<option value="004">004</option>
+				<option value="005">005</option>
+				<option value="006">006</option>
+				<option value="007">007</option>
+				<option value="008">008</option>
+				<option value="009">009</option>
+				<option value="0010">0010</option>
+				<option value="0011">0011</option>
+				<option value="0012">0012</option>
+				<option value="0013">0013</option>
+				<option value="0014">0014</option>
+			</select>
+		<br/>
+		Priority:
+		<br/>
+		<input id="priorityHigh" name="priority" type="radio" name="priority" value="high" />High<br/>
+		<input id="priorityMedium" name="priority" type="radio" name="priority" value="medium" checked="checked">Medium<br/>
+		<input id="priorityLow" name="priority" type="radio" name="priority" value="low" />Low<br/>
+		</fieldset>
+	</form>
+
+	<input id="saveBtn" value="Save" type="button" />
+	<input id="cancelBtn" value="Cancel" type="button" />
 </body>
 
 </html>

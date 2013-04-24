@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- *
- * @author Mike Labriola <labriola@digitalprimates.net>
+ * @author Steve Zimmers <szimmers@digitalprimates.net>
  */
-
 
 package services
 {
+	import models.tasks.Task;
+
 	import randori.async.Promise;
 	import randori.service.AbstractService;
 	import randori.webkit.xml.XMLHttpRequest;
@@ -48,6 +48,32 @@ package services
 		{
 			var promise:Promise = sendRequest("GET", path);
 			var parserPromise:Promise = promise.then(parser.parseResult);
+
+			return parserPromise;
+		}
+
+		/**
+		 * create a new task
+		 *
+		 * Note:
+		 * this is a stub/simulation of a POST. what we're doing here is re-grabbing all the
+		 * original data and appending the provided task to it, then returning it as an array
+		 * via the promise. the tasks grid works with a data property, not a dataview we can
+		 * add an element to, so we're providing *all* the data it needs.
+		 *
+		 * further note that we're not actually persisting any tasks added through the task admin
+		 * mechanism; we'll only return what's in the original data plus the latest.
+		 */
+		public function create(task:Task) : Promise
+		{
+			var promise:Promise = sendRequest("GET", path);
+			var parserPromise:Promise = promise.then(function(data:Object):Array
+			{
+				var json:Object = JSON.parse(data as String);
+				var tasks:Array = json as Array;
+				tasks.push(task);
+				return tasks;
+			});
 
 			return parserPromise;
 		}

@@ -45,7 +45,11 @@
     -randori-mediator: "mediators.TasksMediator";
 }
 
-.behavior-tasksgrid {
+.tasks-admin {
+    -randori-mediator: "mediators.admin.TasksMediator";
+}
+
+.tasksgrid {
     -randori-behavior: "behaviors.TasksGrid";
 }
 
