@@ -18,6 +18,7 @@
 
 package mediators.admin
 {
+	import behaviors.CreateTaskForm;
 	import behaviors.TasksGrid;
 
 	import models.tasks.Task;
@@ -25,7 +26,6 @@ package mediators.admin
 	import randori.behaviors.AbstractMediator;
 	import randori.jquery.Event;
 	import randori.jquery.JQuery;
-	import randori.jquery.JQueryStatic;
 
 	import services.TasksService;
 
@@ -58,28 +58,7 @@ package mediators.admin
 		public var addBtn:JQuery;
 
 		[View]
-		public var newTaskForm:JQuery;
-
-		[View]
-		public var taskName:JQuery;
-
-		[View]
-		public var agent:JQuery;
-
-		[View]
-		public var priorityHigh:JQuery;
-
-		[View]
-		public var priorityMedium:JQuery;
-
-		[View]
-		public var priorityLow:JQuery;
-
-		[View]
-		public var saveBtn:JQuery;
-
-		[View]
-		public var cancelBtn:JQuery;
+		public var createTaskForm:CreateTaskForm;
 
 		//----------------------------------------------------------------------------
 		//
@@ -103,12 +82,12 @@ package mediators.admin
 		 */
 		override protected function onRegister():void
 		{
-			hideControlsForAddingTask();
+			hideNewTaskForm();
 			enableAddButton();
 
 			addBtn.click(handleAddClick);
-			saveBtn.click(handleSaveClick);
-			cancelBtn.click(handleCancelClick);
+			createTaskForm.formSaved.add(formSaved);
+			createTaskForm.formCancelled.add(formCancelled);
 
 			var scopedGrid:TasksGrid = this.grid;
 
@@ -124,8 +103,8 @@ package mediators.admin
 		override protected function onDeregister():void
 		{
 			addBtn.off(handleAddClick);
-			saveBtn.off(handleSaveClick);
-			cancelBtn.off(handleCancelClick);
+			createTaskForm.formSaved.remove(formSaved);
+			createTaskForm.formCancelled.remove(formCancelled);
 		}
 
 		/**
@@ -134,33 +113,17 @@ package mediators.admin
 		 */
 		private function handleAddClick(event:Event) : void
 		{
-			showControlsForAddingTask();
+			showNewTaskForm();
 			disableAddButton();
-		}
-
-		/**
-		 * read form variables and create task object
-		 */
-		private function getTaskFromForm() : Task
-		{
-			var task:Task = new Task();
-
-			task.taskName = taskName.val();
-			task.assignedId = agent.val();
-			task.priority = JQueryStatic.J("input[name=priority]:checked").val();
-
-			return task;
 		}
 
 		/**
 		 * user is saving form data
 		 */
-		private function handleSaveClick(event:Event) : void
+		private function formSaved(task:Task) : void
 		{
-			var task:Task = getTaskFromForm();
-
 			enableAddButton();
-			hideControlsForAddingTask();
+			hideNewTaskForm();
 
 			var scopedGrid:TasksGrid = this.grid;
 
@@ -173,42 +136,28 @@ package mediators.admin
 		/**
 		 * user has cancelled add task, hide the form
 		 */
-		private function handleCancelClick(event:Event) : void
+		private function formCancelled() : void
 		{
 			enableAddButton();
-			hideControlsForAddingTask();
-		}
-
-		/**
-		 * reset form to default values
-		 */
-		private function clearForm() : void
-		{
-			taskName.val("");
-			agent.val("");
+			hideNewTaskForm();
 		}
 
 		/**
 		 * the user has clicked the Add button, show the form
 		 */
-		private function showControlsForAddingTask() : void
+		private function showNewTaskForm() : void
 		{
-			clearForm();
-
-			newTaskForm.show();
-			saveBtn.show();
-			cancelBtn.show();
+			createTaskForm.clearForm();
+			createTaskForm.show();
 		}
 
 		/**
 		 * hide the form and controls for adding a task, such as after one has
 		 * been added and we're waiting for user to click the Add button again
 		 */
-		private function hideControlsForAddingTask() : void
+		private function hideNewTaskForm() : void
 		{
-			newTaskForm.hide();
-			saveBtn.hide();
-			cancelBtn.hide();
+			createTaskForm.hide();
 		}
 
 		/**

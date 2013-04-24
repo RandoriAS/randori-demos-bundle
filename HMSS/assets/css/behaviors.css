@@ -49,6 +49,11 @@
     -randori-mediator: "mediators.admin.TasksMediator";
 }
 
+.createTaskForm {
+    -randori-behavior: "behaviors.CreateTaskForm";
+    -randori-fragment: "fragment/createTaskForm.html";
+}
+
 .tasksgrid {
     -randori-behavior: "behaviors.TasksGrid";
 }
