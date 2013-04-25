@@ -22,6 +22,9 @@ import randori.behaviors.AbstractMediator;
 import randori.behaviors.ViewStack;
 import randori.jquery.JQuery;
 import randori.webkit.html.HTMLElement;
+import randori.webkit.page.Window;
+
+import services.vo.Tip;
 
 public class IndexMediator extends AbstractMediator {
 
@@ -41,7 +44,8 @@ public class IndexMediator extends AbstractMediator {
 
         override protected function onRegister():void {
             bus.navigationRequest.add( handleNavigationRequest );
-            bus.showTipOnMapRequest.add( showTipOnMapHandler );
+            //bus.showTipOnMapRequest.add( showTipOnMapHandler );
+	        bus.tipSelected.add( tipSelectedHandler );
             //bus.externalNavigationRequest.add( handleExternalNavigationRequest );
 
 
@@ -51,7 +55,7 @@ public class IndexMediator extends AbstractMediator {
                     new MenuItem( "The flow", "views/flow.html"),
                     new MenuItem( "And the details", "views/details.html"  )
             );
-
+	        // TODO: GET THIS DATA FROM THE SERVICE!!!
             menu.menuItemSelected.add( menuItemSelected );
             menu.data = menuItems;
 
@@ -73,6 +77,7 @@ public class IndexMediator extends AbstractMediator {
               // viewStack.selectView("views/tips.html");
             }
         }
+
         /*
         private function handleExternalNavigationRequest( extLink:ExternalLink ):void {
             if( extLink.type == "newPage"){
@@ -137,5 +142,14 @@ public class IndexMediator extends AbstractMediator {
             mapOptions.mapTypeId = MapTypeId.ROADMAP;
             map.setOptions( mapOptions );
         }
+
+		private function tipSelectedHandler( tip:Tip):void{
+			Window.console.log("Index Tip: " + tip.name);
+			var mapOptions:MapOptions = new MapOptions();
+			mapOptions.center = new LatLng( tip.latitude, tip.longitude );
+			mapOptions.zoom = 12;
+			mapOptions.mapTypeId = MapTypeId.ROADMAP;
+			map.setOptions( mapOptions );
+		}
     }
 }

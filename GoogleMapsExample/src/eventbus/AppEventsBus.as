@@ -19,6 +19,9 @@ import randori.signal.SimpleSignal;
         [Inject]
         public var showTipOnMapRequest:SimpleSignal;
 
+		[Inject]
+		public var tipSelected:SimpleSignal;
+
         public function AppEventsBus() {
 
         }

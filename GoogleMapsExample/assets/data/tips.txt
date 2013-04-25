@@ -38,5 +38,5 @@
          "comments": "Comments here",
          "latitude": "33.774903",
          "longitude": "-84.406575"
-    },
+    }
 ]

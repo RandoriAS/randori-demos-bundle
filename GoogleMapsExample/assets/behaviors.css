@@ -20,6 +20,10 @@
     -randori-mediator: "mediators.TipsMediator";
 }
 
+.list {
+    -randori-behavior: "randori.behaviors.List";
+}
+
 .simpleList {
     -randori-behavior: "randori.behaviors.SimpleList";
 }

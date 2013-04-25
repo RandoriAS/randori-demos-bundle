@@ -12,8 +12,8 @@ package services.vo {
         public var address:String;
         public var description:String;
         public var comments:String;
-        public var latitude:String;
-        public var longitude:String;
+        public var latitude:Number;
+        public var longitude:Number;
 
         public function Tip() {
 
