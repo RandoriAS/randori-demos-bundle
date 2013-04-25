@@ -45,6 +45,8 @@ public class IndexMediator extends AbstractMediator {
 
         public var locations:Array;
 
+		private var selectedMenuItem:MenuItem;
+
         override protected function onRegister():void {
             bus.navigationRequest.add( handleNavigationRequest );
 	        bus.tipSelected.add( tipSelectedHandler );
@@ -81,12 +83,23 @@ public class IndexMediator extends AbstractMediator {
         private function menuItemSelected( menuData:MenuItem ):void {
             viewStack.popView();
 
+	        selectedMenuItem = menuData;
+
             var promise:Promise = viewStack.pushView(menuData.url);
 
-            promise.then( function( result:AbstractMediator ):void {
-                //do something here with the new view if you want
+	        promise.then( promiseResult );
+            /*
+	        promise.then( function( result:AbstractMediator ):void {
+
             } );
+            */
         }
+
+		private function promiseResult( result:AbstractMediator ):void{
+			if(selectedMenuItem.name == "How it works"){
+				resetMap();
+			}
+		}
 
         private function showMap():void{
 
@@ -106,6 +119,15 @@ public class IndexMediator extends AbstractMediator {
 	            var marker:Marker = new Marker( config );
             }
         }
+
+		private function resetMap():void{
+			var mapOptions:MapOptions = new MapOptions();
+			mapOptions.center = new LatLng(33.748893,-84.388046);
+			mapOptions.zoom = 10;
+			mapOptions.mapTypeId = MapTypeId.ROADMAP;
+
+			map.setOptions(mapOptions);
+		}
 
 		private function tipSelectedHandler( tip:Tip):void{
 			Window.console.log("Index Tip: " + tip.name);

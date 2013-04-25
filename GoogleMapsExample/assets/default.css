@@ -12,10 +12,11 @@ body
 }
 
 .mapDiv{
-    float: left;
+    float: none;
     width: 400px;
     height: 400px;
     padding-top: 35px;
+    padding-left: 500px;
 }
 
 .map{
