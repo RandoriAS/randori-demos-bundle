@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Hoki Japanese Restaurant",
+        "address": "none",
+        "description": "Description here.",
+        "comments": "Comments here",
+        "latitude": "33.872368",
+        "longitude": "-84.457749"
+    },
+    {
+         "name": "Hankook Taqueria",
+         "address": "none",
+         "description": "Description here.",
+         "comments": "Comments here",
+         "latitude": "33.811369",
+         "longitude": "-84.43162"
+    },
+    {
+         "name": "Taqueria Del Sol",
+         "address": "none",
+         "description": "Description here.",
+         "comments": "Comments here",
+         "latitude": "33.78728",
+         "longitude": "-84.412926"
+    },
+    {
+         "name": "Rias Bluebird Cafe",
+         "address": "none",
+         "description": "Description here.",
+         "comments": "Comments here",
+         "latitude": "33.746574",
+         "longitude": "-84.365473"
+    },
+    {
+         "name": "Thumbs Up",
+         "address": "none",
+         "description": "Description here.",
+         "comments": "Comments here",
+         "latitude": "33.774903",
+         "longitude": "-84.406575"
+    },
+]

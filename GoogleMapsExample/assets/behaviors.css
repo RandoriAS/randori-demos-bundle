@@ -20,6 +20,10 @@
     -randori-mediator: "mediators.TipsMediator";
 }
 
+.simpleList {
+    -randori-behavior: "randori.behaviors.SimpleList";
+}
+
 /*
     THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
 

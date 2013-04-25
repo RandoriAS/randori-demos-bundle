@@ -1,7 +1,7 @@
 package eventbus {
-    import randori.signal.SimpleSignal;
+import randori.signal.SimpleSignal;
 
-    /**
+/**
      * Created with IntelliJ IDEA.
      * User: leifwells
      * Date: 4/12/13
@@ -15,6 +15,9 @@ package eventbus {
 
         [Inject]
         public var externalNavigationRequest:SimpleSignal;
+
+        [Inject]
+        public var showTipOnMapRequest:SimpleSignal;
 
         public function AppEventsBus() {
 

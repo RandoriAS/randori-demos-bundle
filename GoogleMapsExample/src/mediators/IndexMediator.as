@@ -6,28 +6,22 @@
  * To change this template use File | Settings | File Templates.
  */
 package mediators {
-    import behaviors.HorizontalTabs;
-    import behaviors.tabs.MenuItem;
+import behaviors.HorizontalTabs;
+import behaviors.tabs.MenuItem;
 
 import eventbus.AppEventsBus;
 
 import google.maps.LatLng;
-
 import google.maps.Map;
-
-    import google.maps.MapOptions;
+import google.maps.MapOptions;
+import google.maps.MapTypeId;
 import google.maps.Marker;
 
-import model.ExternalLink;
-
 import randori.async.Promise;
-
-    import randori.behaviors.AbstractMediator;
-    import randori.behaviors.ViewStack;
-import randori.jquery.Event;
+import randori.behaviors.AbstractMediator;
+import randori.behaviors.ViewStack;
 import randori.jquery.JQuery;
 import randori.webkit.html.HTMLElement;
-import randori.webkit.page.Window;
 
 public class IndexMediator extends AbstractMediator {
 
@@ -47,7 +41,8 @@ public class IndexMediator extends AbstractMediator {
 
         override protected function onRegister():void {
             bus.navigationRequest.add( handleNavigationRequest );
-            bus.externalNavigationRequest.add( handleExternalNavigationRequest );
+            bus.showTipOnMapRequest.add( showTipOnMapHandler );
+            //bus.externalNavigationRequest.add( handleExternalNavigationRequest );
 
 
             var menuItems:Array = new Array(
@@ -78,7 +73,7 @@ public class IndexMediator extends AbstractMediator {
               // viewStack.selectView("views/tips.html");
             }
         }
-
+        /*
         private function handleExternalNavigationRequest( extLink:ExternalLink ):void {
             if( extLink.type == "newPage"){
                 //OPEN NEW PAGE WITH URL
@@ -86,7 +81,7 @@ public class IndexMediator extends AbstractMediator {
                 Window.open(extLink.destination, extLink.target );
             }
         }
-
+        */
         private function menuItemSelected( menuData:MenuItem ):void {
             viewStack.popView();
 
@@ -134,25 +129,13 @@ public class IndexMediator extends AbstractMediator {
             }
         }
 
-        private function centerMapOnPin( event:Event ):void{
+        private function showTipOnMapHandler( item:JQuery ):void{
             var mapOptions:MapOptions = new MapOptions();
-            // USE THE EVENT TO SET THE CENTER OF THE MAP
-            //mapOptions.center = new LatLng(33.748893,-84.388046);
-            //mapOptions.center = new LatLng(event.loc);
-            mapOptions.zoom = 8;
-            mapOptions.mapTypeId = "roadmap"; //MapTypeId.ROADMAP;
-
-            map = new Map(map[0] as HTMLElement, mapOptions);
-
-            for (var i:int = 0; i < locations.length; i++) {
-                var loc:Array = locations[i];
-                var config:Object = new Object();
-                config.title = loc[0];
-                config.position = new LatLng(loc[1], loc[2]);
-                config.map = map;
-                //config.zIndex = i + 1;
-                var marker:Marker = new Marker(config);
-            }
+            var center:Array = item.data( "loc").split(",");
+            mapOptions.center = new LatLng( center[0], center[1]  );
+            mapOptions.zoom = 12;
+            mapOptions.mapTypeId = MapTypeId.ROADMAP;
+            map.setOptions( mapOptions );
         }
     }
 }

@@ -165,3 +165,57 @@ body
     line-height:24px;
     color: darkgrey;
 }
+
+/**
+* TABLE STYLES
+*
+**/
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/*table {
+    max-width:100%;
+    background-color:transparent;
+    border-collapse:collapse;
+    border-spacing:0;
+} */
+
+.table th,.table td {
+    line-height:20px;
+    text-align:left;
+    vertical-align:top;
+    border-top:1px solid #ddd;
+    padding:8px;
+}
+
+.table thead th {
+    vertical-align:bottom;
+}
+
+.table tbody+tbody {
+    border-top:2px solid #ddd;
+}
+
+.table-condensed th,.table-condensed td {
+    padding:4px 5px;
+}
+
+.table-bordered {
+    border:1px solid #ddd;
+    border-collapse:collapse;
+    border-left:0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.table-bordered th,.table-bordered td {
+    border-left:1px solid #ddd;
+}
+
+.table-hover tbody tr:hover td,.table-hover tbody tr:hover th,.pagination ul>li>a:hover,.pagination ul>.active>a,.pagination ul>.active>span {
+    background-color:#f5f5f5;
+}
