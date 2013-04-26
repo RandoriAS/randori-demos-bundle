@@ -18,9 +18,7 @@
  */
 package services.parser {
 	import randori.service.parser.AbstractParser;
-	
-	import services.vo.Target;
-	
+
 	public class GenericJsonParser extends AbstractParser {
 
 		public function parseResult(result:Object):Array {

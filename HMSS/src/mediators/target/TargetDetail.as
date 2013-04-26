@@ -7,6 +7,7 @@ import randori.jquery.Event;
 import randori.jquery.JQuery;
 import randori.jquery.JQueryStatic;
 import randori.webkit.html.HTMLLinkElement;
+import randori.webkit.page.Window;
 
 import services.vo.Target;
 
@@ -34,9 +35,14 @@ public class TargetDetail extends AbstractMediator {
     override public function setViewData(viewData:Object):void {
         target = viewData as Target;
         detail.data = target;
+			var other:TargetLocation;
         var link:HTMLLinkElement = decoratedNode.find("[data-id='mapLink']")[0] as HTMLLinkElement;
         linkNode = JQueryStatic.J( link );
         linkNode.click( handleLocationClick );
+				linkNode.click( function( e:Event ):void {
+					Window.console.log("Handle event")
+				});
+				linkNode.click( other.backToTarget );
     }
 
     private function handleLocationClick():void {

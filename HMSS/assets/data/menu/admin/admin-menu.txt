@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Intel",
+        "url": "views/roles/admin/intel.html",
+        "isRedirect": "true"
+    },
+	{
+		"name": "Targets",
+		"url": "views/roles/admin/targets.html",
+		"isRedirect": "true"
+	},
+	{
+		"name": "Tasks",
+		"url": "views/roles/admin/tasks.html",
+		"isRedirect": "true"
+	}
+]
