@@ -2,51 +2,61 @@
     {
         "name": "Spike Umbrella",
         "image": "assets/images/gadgets/bond-gadgets-01-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "It's a spiked umbrella."
     },
     {
         "name": "Bagpipe Flamethrower",
         "image": "assets/images/gadgets/bond-gadgets-02-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "A bagpipe that contains a flamethrower and a machine gun."
     },
     {
         "name": "False Fingerprints",
         "image": "assets/images/gadgets/bond-gadgets-03-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "A fake fingerprint the clings to the finger tip."
     },
     {
         "name": "Combination Safecracker-Copying Machine",
         "image": "assets/images/gadgets/bond-gadgets-04-1012-lgn.jpg",
-        "status": "Deprecated"
+        "status": "Deprecated",
+        "description": "A device that consists of a flexible cable ending in a grapple that is meant to be fitted on a typical safe combination lock. The machine would then examine the lock, figure out its combination and open the safe. In addition, the device sports an Olivetti wet-type photocopier that could allow for easy copying of secret documents to minimise the chance of the owner learning of the break in by missing documents. Wet-type photocopiers are actually unsuitable for field missions because they must not be tilted lest the highly toxic transfer liquid spills out. This device is quite slow, taking close to an hour to open a safe."
     },
     {
         "name": "Shark-Inflating Pellet",
         "image": "assets/images/gadgets/bond-gadgets-05-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "The name describes it well enough."
     },
     {
         "name": "Cigarette and Toothpaste Bomb",
         "image": "assets/images/gadgets/bond-gadgets-06-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "Plastic explosives disguised as ordinary toothpaste. The receiver that picks up the signal from Bond to blow the explosives is disguised as a packet of cigarettes."
     },
     {
         "name": "Multitouch Table",
         "image": "assets/images/gadgets/bond-gadgets-07-1012-lgn.jpg",
-        "status": "Scheduled"
+        "status": "Scheduled",
+        "description": "Similar to the Microsoft Surface (renamed to Microsoft PixelSense), this tool used by MI6 gathers information regarding possible suspects in an investigation, and relays it back to Bond through his mobile phone."
     },
     {
         "name": "Wallis WA-116 Agile",
         "image": "assets/images/gadgets/bond-gadgets-08-1012-lgn.jpg",
-        "status": "Deployed"
+        "status": "Deployed",
+        "description": "Wallis WA-116 Series 1 gyroplane (codename Little Nellie). Aircraft that can be assembled and disassembled to fit into several small cases. Comes with rocket launchers, air mines, machine guns, rear-mounted flamethrowers, and infrared-guided AA smart missiles."
     },
     {
         "name": "Car Invisibility Cloak",
         "image": "assets/images/gadgets/bond-gadgets-09-1012-lgn.jpg",
-        "status": "In Development"
+        "status": "In Development",
+        "description": "Aston Martin Vanquish. A high-tech car that uses adaptive camouflage technology, and so is equipped with tiny cameras on both sides so that they reflect what they capture on the other side, making it invisible to the human eye. Other features consist of the following: bonnet-mounted target-seeking shotguns, front-firing torpedoes, traction spikes, a passenger ejector seat, dual machine guns concealed behind the front grille, a retractable sliding roof panel, radial thermal imaging (heat) display, a remote-control function, some sort of laser cutting tool (accessible via its respective button on the control panel) and grenades of some sort, presumably rearward ones (also present on the control panel)."
     },
     {
         "name": "Ring Camera",
         "image": "assets/images/gadgets/bond-gadgets-10-1012-lgn.jpg",
-        "status": "In Development"
+        "status": "In Development",
+        "description": "A ring that contains a miniature camera."
     }
 ]

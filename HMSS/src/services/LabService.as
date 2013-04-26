@@ -25,21 +25,21 @@ package services {
 
 	public class LabService extends AbstractService {
 		
-		private var targets:GenericJsonParser;
+		private var gadgets:GenericJsonParser;
 		
 		private var path:String;
 		
 		public function get():Promise {
 			var promise:Promise = sendRequest("GET", path);
-			var parserPromise:Promise = promise.then( targets.parseResult );
+			var parserPromise:Promise = promise.then( gadgets.parseResult );
 			
 			return parserPromise;
 		}
 		
-		public function LabService(xmlHttpRequest:XMLHttpRequest, targets:GenericJsonParser ) {
+		public function LabService(xmlHttpRequest:XMLHttpRequest, gadgets:GenericJsonParser ) {
 			super(xmlHttpRequest);
 			
-			this.targets = targets;
+			this.gadgets = gadgets;
 			this.path = "assets/data/gadgets.txt";
 		}
 	}

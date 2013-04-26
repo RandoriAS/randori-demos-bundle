@@ -22,6 +22,7 @@ package services.vo {
 		public var name:String;
 		public var image:String;
 		public var status:String;
+		public var description:String;
 
 		public function Gadget() {
 		}

@@ -1,24 +1,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
+    <link rel="stylesheet" href="assets/css/gadget.slideshow.css" type="text/css"/>
     <title></title>
 </head>
 <body class="tab-content labs">
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Status</th>
-    </tr>
-    </thead>
-    <tbody id="gadgets" class="simpleList">
-    <tr id="template">
-        <td>{name}</td>
-        <td><img src="{image}" width="150"></td>
-        <td>{status}</td>
-    </tr>
-    </tbody>
-</table>
+<div id="gadgets" class="gadgetslideshow">
+    <table class='mainTable'>
+        <tr>
+            <td>
+                <img id='mainSlide' class='mainSlideWindow'/>
+                <div class='filmstrip'>
+                    <ul id='imageRow' class='imageRow'></ul>
+                </div>
+            </td>
+            <td id='activeGadgetArea'>
+                <div id='gadgetName' class='gadgetName'></div>
+                <div id='gadgetStatus' class='gadgetStatus'></div>
+                <div id='gadgetDescription' class='gadgetDescription'></div>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

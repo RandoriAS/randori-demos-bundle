@@ -1,7 +1,7 @@
 [
     {
-        "name": "Intel",
-        "url": "views/roles/quartermaster/intel.html",
+        "name": "Labs",
+        "url": "views/roles/quartermaster/labs.html",
         "isRedirect": "true"
 	},
 	{

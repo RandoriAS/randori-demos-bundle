@@ -58,6 +58,10 @@
     -randori-behavior: "behaviors.TasksGrid";
 }
 
+.gadgetslideshow {
+    -randori-behavior: "behaviors.GadgetSlideShow";
+}
+
 .simpleList {
     -randori-behavior: "randori.behaviors.SimpleList";
 }
