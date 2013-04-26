@@ -403,3 +403,29 @@ table {
 .login-btn-row > a {
     text-decoration: none;
 }
+
+/* INTEL */
+
+.intel-list {
+    list-style-type: none;
+}
+
+.intel-list li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.intel-list li:nth-child(odd) {
+    background: #eeeeee;
+}
+
+.intel-title {
+    font-size: 18px;
+}
+
+.intel-description {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+

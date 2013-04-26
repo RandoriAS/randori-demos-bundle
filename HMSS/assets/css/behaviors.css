@@ -23,6 +23,7 @@
 
 .intel {
     -randori-mediator: "mediators.IntelMediator";
+    -randori-fragment: "fragment/intelList.html";
 }
 
 .labs {
