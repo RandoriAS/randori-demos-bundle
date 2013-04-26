@@ -52,14 +52,6 @@ package mediators {
 			// add selection / change handler to the list
 			targetList.listChanged.add( handleTargetSelected );
 
-			// initialize map.
-			var mapOptions:MapOptions = new MapOptions();
-			mapOptions.center = new LatLng(32.7502,6.1916);
-			mapOptions.zoom = 2;
-			mapOptions.mapTypeId = MapTypeId.SATELLITE;
-
-			map = new Map(map[0] as HTMLElement, mapOptions);
-
 			//  load targets
 			service.get().then( targetsReceived );
 		}
@@ -82,6 +74,14 @@ package mediators {
 
 		protected function plotTargetsOnMap( results:Array ):void
 		{
+			// initialize map.
+			var mapOptions:MapOptions = new MapOptions();
+			mapOptions.center = new LatLng(32.7502,6.1916);
+			mapOptions.zoom = 2;
+			mapOptions.mapTypeId = MapTypeId.SATELLITE;
+
+			map = new Map(map[0] as HTMLElement, mapOptions);
+
 			if( results != null && results.length > 0 )
 			{
 				for ( var i:int = 0; i < results.length; i++ )
