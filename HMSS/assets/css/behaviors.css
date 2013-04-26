@@ -28,6 +28,7 @@
 
 .labs {
     -randori-mediator: "mediators.LabsMediator";
+    -randori-fragment: "fragment/gadgetsSlideshowFragment.html";
 }
 
 .targets {
