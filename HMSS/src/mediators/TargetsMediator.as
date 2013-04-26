@@ -19,38 +19,89 @@
 package mediators {
 	import eventBus.HMSSBus;
 
+	import google.maps.LatLng;
+	import google.maps.Map;
+	import google.maps.MapOptions;
+	import google.maps.MapTypeId;
+	import google.maps.Marker;
+
 	import randori.behaviors.AbstractMediator;
 	import randori.behaviors.List;
+	import randori.webkit.html.HTMLElement;
 
 	import services.TargetsService;
 	import services.vo.Target;
 
-	public class TargetsMediator extends AbstractMediator {
+	public class TargetsMediator extends AbstractMediator
+	{
 
-	[View]
-	public var targetList:List;
+		[View]
+		public var map:Map;
 
-	[Inject]
-	public var service:TargetsService;
+		[View]
+		public var targetList:List;
 
-	[Inject]
-	public var bus:HMSSBus;
+		[Inject]
+		public var service:TargetsService;
 
-	override protected function onRegister():void {
-		targetList.listChanged.add( handleTargetSelected );
-		service.get().then( handleResult );
+		[Inject]
+		public var bus:HMSSBus;
+
+		override protected function onRegister():void
+		{
+			// add selection / change handler to the list
+			targetList.listChanged.add( handleTargetSelected );
+
+			// initialize map.
+			var mapOptions:MapOptions = new MapOptions();
+			mapOptions.center = new LatLng(32.7502,6.1916);
+			mapOptions.zoom = 2;
+			mapOptions.mapTypeId = MapTypeId.SATELLITE;
+
+			map = new Map(map[0] as HTMLElement, mapOptions);
+
+			//  load targets
+			service.get().then( targetsReceived );
+		}
+
+		private function targetsReceived( results:Array ):void
+		{
+			assignListData( results );
+			plotTargetsOnMap( results );
+		}
+
+		private function handleTargetSelected( target:Target ):void
+		{
+			bus.targetSelected.dispatch( targetList.selectedItem );
+		}
+
+		protected function assignListData( results:Array ):void
+		{
+			targetList.data = results;
+		}
+
+		protected function plotTargetsOnMap( results:Array ):void
+		{
+			if( results != null && results.length > 0 )
+			{
+				for ( var i:int = 0; i < results.length; i++ )
+				{
+					var target:Target = results[i] as Target;
+					//if( !isNaN( target.latitude ) && !isNaN( target.longitude )  )
+					//{
+						var config:Object = new Object();
+						config.title = target.name;
+						config.position = new LatLng(target.latitude, target.longitude);
+						config.map = map;
+						var marker:Marker = new Marker( config );
+					//}
+				}
+			}
+		}
+
+
+		public function TargetsMediator( ) {
+			super();
+		}
 	}
-
-	private function handleTargetSelected( target:Target ):void {
-		bus.targetSelected.dispatch( targetList.selectedItem );
-	}
-
-	private function handleResult( result:Array ):void {
-		targetList.data = result;
-	}
-
-	public function TargetsMediator( ) {
-		super();
-	}
-}
 }
