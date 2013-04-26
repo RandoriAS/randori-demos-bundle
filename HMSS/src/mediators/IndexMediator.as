@@ -81,12 +81,12 @@ package mediators {
 			}
 		}
 
-		protected function menuLoadSuccessfully( results:Array )
+		protected function menuLoadSuccessfully( results:Array ) :void
 		{
 			initializeMenu( results );
 		}
 
-		protected function menuLoadFailure( reason:String )
+		protected function menuLoadFailure( reason:String ):void
 		{
 
 		}

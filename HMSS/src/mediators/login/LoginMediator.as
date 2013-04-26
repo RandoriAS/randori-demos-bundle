@@ -65,12 +65,12 @@ package mediators.login {
 			loginService.login(codeName, passCode).then( loginSuccess, loginFailure );
 		}
 
-		protected function loginSuccess( data:User )
+		protected function loginSuccess( data:User ):void
 		{
 			evtBus.loginSuccess.dispatch( data );
 		}
 
-		protected function loginFailure( data:Object )
+		protected function loginFailure( data:Object ):void
 		{
 			loginErrorTxt.show();
 		}
