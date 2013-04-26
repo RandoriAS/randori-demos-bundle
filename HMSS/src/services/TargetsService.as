@@ -21,9 +21,9 @@ package services {
 	import randori.service.AbstractService;
 	import randori.service.ServiceConfig;
 	import randori.webkit.xml.XMLHttpRequest;
-	
+
 	import services.parser.GenericJsonParser;
-	
+
 	public class TargetsService extends AbstractService {
 		
 		private var config:ServiceConfig;

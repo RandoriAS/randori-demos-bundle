@@ -1,0 +1,7 @@
+{
+	"firstName": "Major",
+	"lastName": "Boothroyd",
+	"role": "quartermaster",
+	"codeName": "Q",
+	"password": "pengun"
+}

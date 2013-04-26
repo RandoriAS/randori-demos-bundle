@@ -18,19 +18,30 @@
  */
 package mediators {
 	import randori.behaviors.AbstractMediator;
-	import randori.jquery.JQuery;
-	
+	import randori.behaviors.List;
+
+	import services.IntelService;
+
 	public class IntelMediator extends AbstractMediator {
 		
 		[View]
-		public var message:JQuery;
+		public var intelList:List;
+
+		private var service:IntelService;
 		
-		override protected function onRegister():void {
-			message.text( "Intel Mediator Loaded and Registered" );
+		override protected function onRegister():void
+		{
+			var scopedList:List = intelList;
+
+			service.get().then( function(data:Array):void
+			{
+				scopedList.data = data;
+			});
 		}
 
-		public function IntelMediator() {
+		public function IntelMediator(service:IntelService) {
 			super();
+			this.service = service;
 		}
 	}
 }

@@ -10,7 +10,7 @@ body
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-	height: 100%;
+    height: 100%;
 }
 
 .v-nav
@@ -44,14 +44,14 @@ body
     border-right-width: 0;
     border-bottom: 1px solid #DDD;
     margin: auto;
-    padding: 10px 15px !important;  
+    padding: 10px 15px !important;
     background: whiteSmoke; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* IE10+ */
-    background: linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* W3C */       
+    background: linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* W3C */
 }
 
 .v-nav >ul >li.selected
@@ -99,51 +99,51 @@ body
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 
 .clear-both {
-	clear: both;
+    clear: both;
 }
 
 #content {
-	margin-top: 40px;
-	height: 100%;
-	min-height: 100%;
-	padding-left: 0px;
+    margin-top: 40px;
+    height: 100%;
+    min-height: 100%;
+    padding-left: 0px;
 }
 
 .targets {
-	height: 100%;
-	padding-top: 10px;
+    height: 100%;
+    padding-top: 10px;
 }
 
 .targets-toggle {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .targets-list {
-	padding-top: 40px;
+    padding-top: 40px;
 }
 
 .targets-map {
-	height: 100%;
+    height: 100%;
 }
 
 /* Google Maps fix */
-.targets-map img { 
-  max-width: none;
+.targets-map img {
+    max-width: none;
 }
 
 /* Google Maps fix */
-.targets-map label { 
-  width: auto; 
-  display:inline; 
-} 
+.targets-map label {
+    width: auto;
+    display:inline;
+}
 
 .headshot {
-	float: right;
-	margin: 0px 10px 0px 10px;
+    float: right;
+    margin: 0px 10px 0px 10px;
 }
 
 .container-fluid {
@@ -235,9 +235,10 @@ body
     float: right;
 }
 
-.navbar-text {
+.username-text {
     margin-bottom: 0;
     line-height: 40px;
+
 }
 
 .contentArea
@@ -245,11 +246,11 @@ body
     background-color: #FFFFFF;
     margin: 0;
     padding: 0;
-	height: 100%;
+    height: 100%;
     width: 800px;
     position: relative;
     left: 210px;
-} 
+}
 
 .table {
     width: 100%;
@@ -257,56 +258,174 @@ body
 }
 
 table {
-max-width:100%;
-background-color:transparent;
-border-collapse:collapse;
-border-spacing:0;
+    max-width:100%;
+    background-color:transparent;
+    border-collapse:collapse;
+    border-spacing:0;
 }
 
 .table {
-width:100%;
-margin-bottom:20px;
+    width:100%;
+    margin-bottom:20px;
 }
 
 .table th,.table td {
-line-height:20px;
-text-align:left;
-vertical-align:top;
-border-top:1px solid #ddd;
-padding:8px;
+    line-height:20px;
+    text-align:left;
+    vertical-align:top;
+    border-top:1px solid #ddd;
+    padding:8px;
 }
 
 .table thead th {
-vertical-align:bottom;
+    vertical-align:bottom;
 }
 
 .table tbody+tbody {
-border-top:2px solid #ddd;
+    border-top:2px solid #ddd;
 }
 
 .table-condensed th,.table-condensed td {
-padding:4px 5px;
+    padding:4px 5px;
 }
 
 .table-bordered {
-border:1px solid #ddd;
-border-collapse:collapse;
-border-left:0;
--webkit-border-radius:4px;
--moz-border-radius:4px;
-border-radius:4px;
+    border:1px solid #ddd;
+    border-collapse:collapse;
+    border-left:0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
 }
 
 .table-bordered th,.table-bordered td {
-border-left:1px solid #ddd;
+    border-left:1px solid #ddd;
 }
 
 .table-hover tbody tr:hover td,.table-hover tbody tr:hover th,.pagination ul>li>a:hover,.pagination ul>.active>a,.pagination ul>.active>span {
-background-color:#f5f5f5;
+    background-color:#f5f5f5;
 }
 
 .targetDetailImage {
-  float: left;
+    float: left;
 }
 
 .targetLocation-canvas { height: 100% }
+
+.login-main
+{
+    width: 325px;
+    border-color: #dbd8d8;
+    border-style: solid;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.login-main .username-field {
+    z-index: 5;
+    border: 2px solid #dbd8d8;
+    border-radius: 10px;
+    width: 175px;
+    height: 25px;
+    color: #000000;
+}
+.login-main .password-field
+{
+    z-index: 5;
+    border: 2px solid #dbd8d8;
+    border-radius: 10px;
+    width: 175px;
+    height: 25px;
+    color: #000000;
+}
+
+.login-main .username-txt
+{
+    z-index: 5;
+    font-size: 14px;
+    color: #2D2622;
+    width: 100px;
+}
+
+.username-row
+{
+    text-align: center;
+}
+
+.passcode-row
+{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-btn-row
+{
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.login-main .password-txt
+{
+    z-index: 5;
+    font-size: 14px;
+    color: #2D2622;
+    width: 100px;
+}
+
+.login-main .login-button {
+    z-index: 5;
+    border-radius: 10px;
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+    background: #e36b1d;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
+
+.login-error-msg
+{
+    color: #990000;
+    font-weight: bold;
+}
+
+.username-row .username-field, .passcode-row .password-field{
+    margin-bottom:20px;
+}
+.passcode-row .password-field {
+    margin-right: -11px;
+}
+.login-btn-row > a {
+    text-decoration: none;
+}
+
+/* INTEL */
+
+.intel-list {
+    list-style-type: none;
+}
+
+.intel-list li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.intel-list li:nth-child(odd) {
+    background: #eeeeee;
+}
+
+.intel-title {
+    font-size: 18px;
+}
+
+.intel-description {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+

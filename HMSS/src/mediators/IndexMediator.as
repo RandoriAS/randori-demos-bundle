@@ -1,4 +1,4 @@
-/***
+﻿/***
  * Copyright 2013 LTN Consulting, Inc. /dba Digital Primates®
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,22 +17,27 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package mediators {
+	import behaviors.SiteHeader;
 	import behaviors.VerticalTabs;
 	import behaviors.tabs.MenuItem;
 
-import eventBus.HMSSBus;
+	import eventBus.HMSSBus;
 
-import randori.async.Promise;
+	import models.AppModel;
+	import models.user.User;
+
+	import randori.async.Promise;
 	import randori.behaviors.AbstractMediator;
 	import randori.behaviors.ViewStack;
-import randori.webkit.page.Location;
-import randori.webkit.page.Window;
-import randori.webkit.workers.WorkerLocation;
 
-import services.vo.Target;
+	import services.MenuService;
+	import services.vo.Target;
 
-public class IndexMediator extends AbstractMediator {
-		
+	public class IndexMediator extends AbstractMediator {
+
+		[View(required="true")]
+		public var header:SiteHeader;
+
 		[View(required="true")] 
 		public var viewStack:ViewStack;
 		
@@ -42,19 +47,79 @@ public class IndexMediator extends AbstractMediator {
         [Inject]
         public var bus:HMSSBus;
 
-        override protected function onRegister():void {
-			var menuItems:Array = new Array(
-				new MenuItem( "Targets", "views/targets.html" ),
-				new MenuItem( "Labs", "views/labs.html" ),
-				new MenuItem( "Intel", "views/intel.html"  )
-			);
-			
+		[Inject]
+		public var appModel:AppModel;
+
+		[Inject]
+		public var menuService:MenuService;
+
+        override protected function onRegister():void
+		{
+
+			bus.userChanged.add( currentUser_changeHandler );
+
+			if( appModel.currentUser == null )
+			{
+				promptLogin();
+			}
+			else
+			{
+				loadUserMenu( appModel.currentUser );
+			}
+		}
+
+		protected function loadUserMenu( usr:User ):void
+		{
+			if( usr )
+			{
+				var menuPromise:Promise = menuService.get( usr.role );
+				menuPromise.then( menuLoadSuccessfully, menuLoadFailure )
+			}
+			else
+			{
+				throw new ArgumentError("No User Passed In.")
+			}
+		}
+
+		protected function menuLoadSuccessfully( results:Array ) :void
+		{
+			initializeMenu( results );
+		}
+
+		protected function menuLoadFailure( reason:String ):void
+		{
+
+		}
+
+		protected function initializeMenu( menuItems:Array ):void
+		{
 			menu.menuItemSelected.add( menuItemSelected );
 			menu.data = menuItems;
 
-            bus.targetSelected.add( handleTargetSelected );
-            bus.targetClose.add( handleCloseTargetDetail );
-            bus.showTargetLocation.add( handleShowTargetLocation );
+			bus.targetSelected.add( handleTargetSelected );
+			bus.targetClose.add( handleCloseTargetDetail );
+			bus.showTargetLocation.add( handleShowTargetLocation );
+		}
+
+		protected function promptLogin():void
+		{
+			viewStack.pushView( "views/login/login.html");
+
+			bus.loginSuccess.add( handleLoginSuccess );
+		}
+
+		protected function handleLoginSuccess( usr:User ):void
+		{
+			appModel.currentUser = usr;
+
+			viewStack.popView();
+
+			loadUserMenu( appModel.currentUser );
+		}
+
+		protected function currentUser_changeHandler( usr:User ):void
+		{
+			header.showUser( usr );
 		}
 
         private function handleShowTargetLocation( target:Target ):void {
@@ -78,6 +143,20 @@ public class IndexMediator extends AbstractMediator {
         }
 
         private function menuItemSelected( menuData:MenuItem ):void  {
+
+            //We want to pop all views: This code is strange due to a compiler bug
+            //TODO: Update this after latest compiler is tested
+            for ( var i:int=0;i<50; i++ ) {
+                var url:String = viewStack.currentViewUrl;
+
+                if ( url ) {
+                    viewStack.popView();
+                } else {
+                    break;
+                }
+
+            }
+
 			viewStack.popView();
 			var promise:Promise = viewStack.pushView(menuData.url);
 			
@@ -86,7 +165,8 @@ public class IndexMediator extends AbstractMediator {
 			} );
 		}
 		
-		public function IndexMediator() {
+		public function IndexMediator()
+		{
 			super();
 		}
 	}

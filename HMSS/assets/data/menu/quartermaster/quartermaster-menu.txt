@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Intel",
+        "url": "views/roles/quartermaster/intel.html",
+        "isRedirect": "true"
+	},
+	{
+		"name": "Tasks",
+		"url": "views/roles/quartermaster/tasks.html",
+		"isRedirect": "true"
+	}
+]
