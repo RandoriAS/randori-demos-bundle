@@ -126,6 +126,16 @@ body
     padding-top: 40px;
 }
 
+.gadget-item-row
+{
+    cursor: hand; cursor: pointer;
+}
+
+.targets-row
+{
+    cursor: hand; cursor: pointer;
+}
+
 .targets-map {
     height: 100%;
 }
