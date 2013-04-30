@@ -1,0 +1,7 @@
+{
+	"firstName": "Jack",
+	"lastName": "Mason",
+	"role": "agent",
+	"codeName": "003",
+	"password": "003"
+}

@@ -1,0 +1,7 @@
+{
+	"firstName": "Sir Miles",
+	"lastName": "Messervy",
+	"role": "admin",
+	"codeName": "M",
+	"password": "bulldog"
+}

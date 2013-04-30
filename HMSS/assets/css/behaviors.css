@@ -3,6 +3,16 @@
     -randori-mediator: "mediators.IndexMediator";
 }
 
+.siteHeader {
+    -randori-behavior: "behaviors.SiteHeader";
+    -randori-fragment: "fragment/siteHeader.html";
+}
+
+.mediator-login-area
+{
+    -randori-mediator: "mediators.login.LoginMediator";
+}
+
 .viewStack {
     -randori-behavior: "randori.behaviors.ViewStack";
 }
@@ -13,6 +23,7 @@
 
 .intel {
     -randori-mediator: "mediators.IntelMediator";
+    -randori-fragment: "fragment/intelList.html";
 }
 
 .labs {
@@ -29,6 +40,23 @@
 
 .targetLocation {
     -randori-mediator: "mediators.target.TargetLocation";
+}
+
+.tasks {
+    -randori-mediator: "mediators.TasksMediator";
+}
+
+.tasks-admin {
+    -randori-mediator: "mediators.admin.TasksMediator";
+}
+
+.createTaskForm {
+    -randori-behavior: "behaviors.CreateTaskForm";
+    -randori-fragment: "fragment/createTaskForm.html";
+}
+
+.tasksgrid {
+    -randori-behavior: "behaviors.TasksGrid";
 }
 
 .simpleList {
