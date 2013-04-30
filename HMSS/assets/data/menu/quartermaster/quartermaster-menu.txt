@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Labs",
+        "url": "views/roles/quartermaster/labs.html",
+        "isRedirect": "true"
+	},
+	{
+		"name": "Tasks",
+		"url": "views/roles/quartermaster/tasks.html",
+		"isRedirect": "true"
+	}
+]

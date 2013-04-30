@@ -1,0 +1,57 @@
+ul.imageRow {
+    height:70px;
+    margin: 0px;
+    padding:0px;
+}
+
+ul.imageRow li {
+    float: left;
+    display: block;
+    padding: 4px;
+    margin: 0px;
+    opacity: 0.7;
+    background-color: #fff;
+    filter: alpha(opacity=70);
+}
+
+ul.imageRow li img {
+    border: 0px;
+    height: 50px; /* just incase the images are a different size */
+    width: 70px; /* ditto */
+    margin: 0px;
+    padding:0px;
+}
+
+div.filmstrip {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 480px;
+    height: 75px; /* give it enough space for the images and the scrollbar, if present */
+}
+
+ul.imageRow li:hover {
+    opacity: 1.0;
+    background-color:#bef;
+    filter: alpha(opacity=100);
+}
+
+.mainSlideWindow {
+    width: 480px;
+    height: 320px;
+}
+
+.mainTable td {
+    vertical-align: top;
+}
+
+.gadgetName {
+    font-weight: bold;
+}
+
+.gadgetStatus {
+    font-style: italic;
+}
+
+.gadgetDescription {
+    padding-top: 8px;
+}

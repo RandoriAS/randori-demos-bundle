@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Intel",
+        "url": "views/roles/agent/intel.html",
+        "isRedirect": "true"
+	},
+	{
+		"name": "Labs",
+		"url": "views/roles/agent/labs.html",
+		"isRedirect": "true"
+	},
+	{
+		"name": "Targets",
+		"url": "views/roles/agent/targets.html",
+		"isRedirect": "true"
+	},
+	{
+		"name": "Tasks",
+		"url": "views/roles/agent/tasks.html",
+		"isRedirect": "true"
+	}
+]
