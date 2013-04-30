@@ -144,6 +144,11 @@ package mediators {
 
         private function menuItemSelected( menuData:MenuItem ):void  {
 
+			if( viewStack.hasView( menuData.url ) )
+			{
+				  return;
+			}
+
             //We want to pop all views: This code is strange due to a compiler bug
             //TODO: Update this after latest compiler is tested
             for ( var i:int=0;i<50; i++ ) {
