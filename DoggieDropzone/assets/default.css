@@ -10,6 +10,53 @@ body
     height: 100%;
     width: 100%;
 }
+h1 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+p {
+    padding: 20px 20px 10px 20px;
+}
+
+form {
+    width: 100%;
+    margin: 0, auto;
+}
+
+.formItem {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-bottom: 10px;
+}
+
+.formAction {
+    float: right;
+    width: 300px;
+    margin: 0, auto;
+}
+
+.formError {
+    color: red;
+}
+
+.contentArea
+{
+    width: 500px;
+    height: 400px;
+    background-color: #FFFFFF;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    overflow: auto;
+}
+
+input, label {
+    display: block;
+}
+
+
+
 
 .mapDiv{
     float: none;
@@ -78,16 +125,7 @@ body
     display:block;
 }
 
-.contentArea
-{
-    width: 500px;
-    height: 400px;
-    background-color: #FFFFFF;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    overflow: auto;
-}
+
 
 
 
