@@ -1,0 +1,4 @@
+/* Mediators */
+.App {
+    -randori-mediator: "mediators.IndexMediator";
+}
