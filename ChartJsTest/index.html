@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChartJs Test</title>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="generated/lib/randori-guice-framework.js"></script>
+    <script type="text/javascript" src="generated/lib/randori-framework.js"></script>
+
+    <script type="text/javascript" src="./jsLibs/ChartJs/Chart.js"></script>
+
+    <link rel="stylesheet/randori" href="assets/behaviors.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/style/style.css"/>
+
+    <script type="text/javascript">
+        //Start the randori framework
+        jQuery(function () {
+            var randoriApp = new randori.startup.RandoriBootstrap(document);
+            randoriApp.launch( true );
+
+        });
+    </script>
+</head>
+<body class="App">
+    <article>
+        <h1>Line chart</h1>
+        <h2>Introduction</h2>
+        <p>A line chart is a way of plotting data points on a line.</p>
+        <p>Often, it is used to show trend data, and the comparison of two data sets.</p>
+        <h2>Example usage</h2>
+        <canvas id="line" data-type="Line" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+    <article>
+        <h1>Bar chart</h1>
+        <h2>Introduction</h2>
+        <p>A bar chart is a way of showing data as bars.</p>
+        <p>It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+        <h2>Example usage</h2>
+        <canvas id="bar" data-type="Bar" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+    <article>
+        <h1>Radar chart</h1>
+        <h2>Introduction</h2>
+        <p>A radar chart is a way of showing multiple data points and the variation between them.</p>
+        <p>They are often useful for comparing the points of two or more different data sets</p>
+        <h2>Example usage</h2>
+        <canvas id="radar" data-type="Radar" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+    <article>
+        <h1>Polar area chart</h1>
+        <h2>Introduction</h2>
+        <p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
+        <p>This type of chart is often useful when we want to show a comparison data similar to a pie chart, but also show a scale of values for context.</p>
+        <h2>Example usage</h2>
+        <canvas id="polar" data-type="Polar" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+    <article>
+        <h1>Pie chart</h1>
+        <h2>Introduction</h2>
+        <p>Pie charts are probably the most commonly used chart there are. They are divided into segments, the arc of each segment shows a the proportional value of each piece of data.</p>
+        <p>They are excellent at showing the relational proportions between data.</p>
+        <h2>Example usage</h2>
+        <canvas id="pie" data-type="Pie" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+    <article>
+        <h1>Doughnut  chart</h1>
+        <h2>Introduction</h2>
+        <p>Doughnut charts are similar to pie charts, however they have the centre cut out, and are therefore shaped more like a doughnut than a pie!</p>
+        <p>They are aso excellent at showing the relational proportions between data.</p>
+        <h2>Example usage</h2>
+        <canvas id="doughnut" data-type="Doughnut " width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    </article>
+
+
+</body>
+</html>
