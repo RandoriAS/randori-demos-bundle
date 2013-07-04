@@ -17,23 +17,23 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package mediators {
-	import behaviors.SiteHeader;
-	import behaviors.VerticalTabs;
-	import behaviors.tabs.MenuItem;
+import behaviors.SiteHeader;
+import behaviors.VerticalTabs;
+import behaviors.tabs.MenuItem;
 
-	import eventBus.HMSSBus;
+import eventBus.HMSSBus;
 
-	import models.AppModel;
-	import models.user.User;
+import models.AppModel;
+import models.user.User;
 
-	import randori.async.Promise;
-	import randori.behaviors.AbstractMediator;
-	import randori.behaviors.ViewStack;
+import randori.async.Promise;
+import randori.behaviors.AbstractMediator;
+import randori.behaviors.ViewStack;
 
-	import services.MenuService;
-	import services.vo.Target;
+import services.MenuService;
+import services.vo.Target;
 
-	public class IndexMediator extends AbstractMediator {
+public class IndexMediator extends AbstractMediator {
 
 		[View(required="true")]
 		public var header:SiteHeader;
@@ -77,7 +77,7 @@ package mediators {
 			}
 			else
 			{
-				throw new ArgumentError("No User Passed In.")
+				throw new Error("No User Passed In.")
 			}
 		}
 
