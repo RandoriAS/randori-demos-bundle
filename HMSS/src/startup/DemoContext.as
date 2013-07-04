@@ -17,15 +17,15 @@
  * @author Michael Labriola <labriola@digitalprimates.net>
  */
 package startup {
-	import eventBus.HMSSBus;
+import eventBus.HMSSBus;
 
-	import guice.GuiceModule;
-	import guice.binding.Binder;
-	import guice.binding.Scope;
+import guice.IGuiceModule;
+import guice.binding.IBinder;
+import guice.binding.Scope;
 
-	public class DemoContext extends GuiceModule {
+public class DemoContext implements IGuiceModule {
 		
-		override public function configure(binder:Binder):void {
+		public function configure(binder:IBinder):void {
             binder.bind( HMSSBus).inScope( Scope.Singleton).to( HMSSBus );
 		}
 		
