@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!--
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<project name="randori-compiler" default="main" basedir=".">
+
+	<pathconvert property="basedir_clean" dirsep="/">
+		<path location="${basedir}" />
+	</pathconvert>
+
+	<property name="sdk.path" value="D:/randori-sdk/randori-framework/bin/swc/" />
+	<property name="sdk.js.path" value="D:/randori-sdk/randori-framework/js/monolithic/" />
+	<property name="randori.compiler.path" value="D:/randori-compiler/" />
+	
+	<target name="main" depends="clean">
+		<java classname="randori.compiler.clients.Randori"
+			failonerror="true">
+			 <arg value="-library-path=${sdk.path}builtin.swc"/>
+			 <arg value="-library-path=${sdk.path}JQuery.swc"/>
+			 <arg value="-library-path=${sdk.path}HTMLCoreLib.swc"/>
+			 <arg value="-library-path=${sdk.path}randori-framework.swc"/>
+			 <arg value="-library-path=${sdk.path}randori-guice-framework.swc"/>
+			 <arg value="-js-classes-as-files=true"/>
+			 <arg value="-source-path=${basedir_clean}/src"/>
+			 <arg value="-output=${basedir_clean}/generated"/>
+			 <classpath>
+			   <pathelement location="${randori.compiler.path}randori.jar"/>
+			 </classpath>
+	       </java>
+	       <copy file="${sdk.js.path}randori-guice-framework.js" tofile="${basedir_clean}/generated/lib/randori-guice-framework.js"/>
+	       <copy file="${sdk.js.path}randori-framework.js" tofile="${basedir_clean}/generated/lib/randori-framework.js"/>
+	</target>
+
+	<target name="clean">
+		<delete dir="${basedir_clean}/generated"/>
+	</target>
+</project>
