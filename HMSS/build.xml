@@ -21,7 +21,7 @@
 	<property name="sdk.path" value="D:/randori-sdk/randori-framework/bin/swc/" />
 	<property name="randori.compiler.path" value="D:/randori-compiler/" />
 	
-	<target name="main">
+	<target name="main" depends="clean">
 		<java classname="randori.compiler.clients.Randori"
 			failonerror="true">
 			 <arg value="-library-path=${sdk.path}builtin.swc"/>
@@ -38,4 +38,7 @@
 	       </java>
 	</target>
 
+	<target name="clean">
+		<delete dir="${basedir_clean}/generated"/>
+	</target>
 </project>
