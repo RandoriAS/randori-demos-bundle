@@ -19,6 +19,7 @@
 	</pathconvert>
 
 	<property name="sdk.path" value="D:/randori-sdk/randori-framework/bin/swc/" />
+	<property name="sdk.js.path" value="D:/randori-sdk/randori-framework/js/monolithic/" />
 	<property name="randori.compiler.path" value="D:/randori-compiler/" />
 	
 	<target name="main" depends="clean">
@@ -36,6 +37,8 @@
 			   <pathelement location="${randori.compiler.path}randori.jar"/>
 			 </classpath>
 	       </java>
+	       <copy file="${sdk.js.path}randori-guice-framework.js" tofile="${basedir_clean}/generated/lib/randori-guice-framework.js"/>
+	       <copy file="${sdk.js.path}randori-framework.js" tofile="${basedir_clean}/generated/lib/randori-framework.js"/>
 	</target>
 
 	<target name="clean">
