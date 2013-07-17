@@ -3,3 +3,15 @@
 **/generated/
 **/out/
 **/*.iml
+/html-template/
+/.idea/
+/generated/
+/out/
+/*.iml
+DoggieDropzone/.idea/compiler.xml
+DoggieDropzone/.idea/misc.xml
+DoggieDropzone/.idea/workspace.xml
+DoggieDropzone/generated/contexts/ExampleContext.js
+DoggieDropzone/generated/lib/randori-framework.js
+DoggieDropzone/generated/lib/randori-guice-framework.js
+DoggieDropzone/generated/mediators/IndexMediator.js

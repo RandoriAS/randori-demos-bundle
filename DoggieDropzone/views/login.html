@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login to Schedule a Stay</title>
+    </head>
+    <body>
+        <h1>Schedule an Extended Stay</h1>
+        <p>Does your dog need an extended stay with Doggie Dropzone?
+            Login here to schedule their visit.</p>
+        <form>
+            <div class="formError" hidden="true">
+               You entered the wrong credentials!
+            </div>
+            <div class="formItem">
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="text" placeholder="leif.wells@gmail.com">
+            </div>
+            <div class="formItem">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" />
+            </div>
+            <div class="formItem">
+                Did you forget your password?
+            </div>
+            <div class="formAction">
+                <button id="loginActionButton" >Login</button>
+            </div>
+
+        </form>
+        <p>Please Note: Only owners with approved dogs may login. <a href="#">Get your dog approved.</a></p>
+    </body>
+</html>

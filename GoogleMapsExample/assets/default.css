@@ -1,0 +1,250 @@
+body
+{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    line-height:20px;
+    color:#333;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.mapDiv{
+    float: none;
+    width: 400px;
+    height: 400px;
+    padding-top: 35px;
+    padding-left: 500px;
+}
+
+.map{
+    width: 400px;
+    height: 400px;
+}
+
+.rightSideDiv{
+    float: left;
+}
+
+.h-nav{
+    margin: auto;
+    color: #333;
+    background-color: #f7f7f7;
+    border: none;
+    /* border: 2px solid #00FF00; */
+    height: 21px;
+}
+
+.h-nav ul{
+    padding-left: 0px;
+}
+.h-nav >ul >li.selected{
+    border-bottom: none;
+    background: white !important;
+    position: relative;
+    moz-box-shadow: inset 0 0 35px 5px #fafbfd;
+    -webkit-box-shadow: inset 0 0 35px 5px #fafbfd;
+    box-shadow: inset 0 0 35px 5px #fafbfd;
+}
+
+.h-nav li{
+    float:left;
+    list-style-type: none;
+    width: 110px;
+    display: block;
+    top: 0px;
+    border: 2px solid #DDD;
+    /* border-bottom-width: 0px; */
+    margin: auto 0 !important;
+    padding:0px;
+    text-align: center;
+
+    /* CSS 3 elements */
+    webkit-border-top-right-radius:0.50em;
+    -webkit-border-top-left-radius:0.50em;
+    -moz-border-radius-topright:0.50em;
+    -moz-border-radius-topleft:0.50em;
+    border-top-right-radius:0.50em;
+    border-top-left-radius:0.50em;
+}
+
+.h-nav li:hover{
+    cursor: pointer;
+}
+
+.h-nav a{
+    display:block;
+}
+
+.contentArea
+{
+    width: 500px;
+    height: 400px;
+    background-color: #FFFFFF;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    overflow: auto;
+}
+
+
+
+/*        THIS IS THE BEGINNING OF THE CSS FOR PAGES      */
+.contentsBody{
+     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+     font-size:14px;
+     line-height:20px;
+     color:#333;
+     /* background-color: #FF0000; */
+     width: 100%;
+}
+
+.contentsDiv{
+    padding: 20px;
+}
+
+.contentsDiv h1{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    line-height:24px;
+    color: darkred;
+}
+
+.contentsDiv h2{
+    font-size:14px;
+    font-weight: bold;
+}
+
+.link{
+    width: 100%;
+}
+
+.link a:link{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    line-height:24px;
+    color: darkred;
+}
+
+.link a:visited{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    line-height:24px;
+    color: darkred;
+}
+
+.link a:hover{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    line-height:24px;
+    color: darkred;
+}
+
+.link a:active{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    line-height:24px;
+    color: darkred;
+}
+
+.tips{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size:18px;
+    font-weight: bold;
+    line-height:24px;
+    color: darkgrey;
+}
+
+.tipsTableStyle{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.tipsTableStyle {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size:18px;
+    font-weight: bold;
+    line-height:24px;
+    color: darkgrey;
+}
+
+.tipsTableStyle a{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size:18px;
+    font-weight: bold;
+    line-height:24px;
+    color: darkgrey;
+    text-decoration: none;
+}
+
+.tipsListStyle td{
+    text-align: 'center';
+}
+
+/**
+* TABLE STYLES
+*
+**/
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/*table {
+    max-width:100%;
+    background-color:transparent;
+    border-collapse:collapse;
+    border-spacing:0;
+} */
+
+.table th,.table td {
+    line-height:20px;
+    text-align:left;
+    vertical-align:top;
+    border-top:1px solid #ddd;
+    padding:8px;
+}
+
+.table thead th {
+    vertical-align:bottom;
+}
+
+.table tbody+tbody {
+    border-top:2px solid #ddd;
+}
+
+.table-condensed th,.table-condensed td {
+    padding:4px 5px;
+}
+
+.table-bordered {
+    border:1px solid #ddd;
+    border-collapse:collapse;
+    border-left:0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.table-bordered th,.table-bordered td {
+    border-left:1px solid #ddd;
+}
+
+.table-hover tbody tr:hover td,.table-hover tbody tr:hover th,.pagination ul>li>a:hover,.pagination ul>.active>a,.pagination ul>.active>span {
+    background-color:#f5f5f5;
+}

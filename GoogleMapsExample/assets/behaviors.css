@@ -1,0 +1,37 @@
+.googleMapsExample{
+    -randori-context: "contexts.ExampleContext";
+    -randori-mediator: "mediators.IndexMediator";
+}
+
+.viewStack {
+    -randori-behavior: "randori.behaviors.ViewStack";
+}
+
+.horizontalTabs {
+    -randori-behavior: "behaviors.HorizontalTabs";
+}
+
+.generalContentMediator {
+    -randori-mediator: "mediators.GeneralContentMediator";
+
+}
+
+.tipsPage {
+    -randori-mediator: "mediators.TipsMediator";
+}
+
+.list {
+    -randori-behavior: "randori.behaviors.List";
+}
+
+.simpleList {
+    -randori-behavior: "randori.behaviors.SimpleList";
+}
+
+/*
+    THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS
+
+.externalPage {
+    -randori-mediator: "mediators.ExternalPageMediator";
+}
+*/
