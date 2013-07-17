@@ -98,16 +98,14 @@ package behaviors
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onRegister():void
-		{
+		override public function initialize():void	{
 			setupGrid();
 		}
 
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onDeregister():void
-		{
+		override public function destroy():void {
 			grid.destroy();
 		}
 

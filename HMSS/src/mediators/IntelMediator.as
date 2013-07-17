@@ -28,9 +28,8 @@ package mediators {
 		public var intelList:List;
 
 		private var service:IntelService;
-		
-		override protected function onRegister():void
-		{
+
+		override public function initialize():void	{
 			var scopedList:List = intelList;
 
 			service.get().then( function(data:Array):void

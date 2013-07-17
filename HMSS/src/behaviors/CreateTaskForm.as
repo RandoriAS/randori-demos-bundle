@@ -79,8 +79,7 @@ package behaviors
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onRegister():void
-		{
+		override public function initialize():void	{
 			saveBtn.click(handleSaveClick);
 			cancelBtn.click(handleCancelClick);
 		}
@@ -88,8 +87,7 @@ package behaviors
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onDeregister():void
-		{
+		override public function destroy():void {
 			saveBtn.off(handleSaveClick);
 			cancelBtn.off(handleCancelClick);
 		}

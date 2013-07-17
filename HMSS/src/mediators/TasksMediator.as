@@ -59,7 +59,7 @@ package mediators
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onRegister():void
+		override public function initialize():void
 		{
 			var scopedGrid:TasksGrid = this.grid;
 
@@ -67,14 +67,6 @@ package mediators
 			{
 				scopedGrid.data = data;
 			});
-		}
-
-		/**
-	 	 * @inheritDoc
-	 	 */
-		override protected function onDeregister():void
-		{
-
 		}
 
 		/**

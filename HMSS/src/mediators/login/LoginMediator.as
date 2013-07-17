@@ -26,8 +26,9 @@ package mediators.login {
 	import randori.behaviors.AbstractMediator;
 	import randori.jquery.Event;
 	import randori.jquery.JQuery;
+import randori.webkit.page.Window;
 
-	import services.AgentService;
+import services.AgentService;
 
 	public class LoginMediator extends AbstractMediator
 	{
@@ -75,9 +76,8 @@ package mediators.login {
 			loginErrorTxt.show();
 		}
 
-		override protected function onRegister():void
-		{
-			super.onRegister();
+		override public function initialize():void	{
+			super.initialize();
 
 			loginButton.click( loginButton_clickHandler );
 			loginErrorTxt.hide();

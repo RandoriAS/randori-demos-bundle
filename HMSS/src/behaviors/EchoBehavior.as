@@ -20,7 +20,7 @@ package behaviors {
 	import randori.behaviors.AbstractBehavior;
 	
 	public class EchoBehavior extends AbstractBehavior {
-		override protected function onRegister():void {
+		override public function initialize():void	{
 			decoratedElement.innerText = "Echo";
 		}
 
