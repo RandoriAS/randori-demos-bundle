@@ -7,135 +7,108 @@
  */
 package mediators {
 import behaviors.HorizontalTabs;
+import behaviors.TipMap;
 import behaviors.tabs.MenuItem;
 
-import eventbus.AppEventsBus;
+import commands.signals.ITabsModelUpdated;
+import commands.signals.ITipsModelUpdated;
 
-import google.maps.LatLng;
-import google.maps.Map;
-import google.maps.MapOptions;
-import google.maps.MapTypeId;
-import google.maps.Marker;
+import model.TabsModel;
+
+import model.TipsModel;
 
 import randori.async.Promise;
+import randori.behaviors.AbstractBehavior;
 import randori.behaviors.AbstractMediator;
 import randori.behaviors.ViewStack;
-import randori.webkit.html.HTMLElement;
-import randori.webkit.page.Window;
 
-import services.TipsService;
+import robotlegs.flexo.context.IContextInitialized;
+
 import services.vo.Tip;
+
+import commands.signals.INavigationRequest;
+import commands.signals.ITipSelected;
 
 public class IndexMediator extends AbstractMediator {
 
-        [View(required="true")]
-        public var viewStack:ViewStack;
+	[View(required="true")]
+	public var viewStack:ViewStack;
 
-        [View(required="true")]
-        public var menu:HorizontalTabs;
+	[View(required="true")]
+	public var menu:HorizontalTabs;
 
-        [View]
-        public var map:Map;
+	[View]
+	public var map:TipMap;
 
-        [Inject]
-        public var bus:AppEventsBus;
+	[Inject]
+	public var navigationRequest:INavigationRequest;
 
-		[Inject]
-		public var service:TipsService;
+	[Inject]
+	public var tipSelected:ITipSelected;
 
-        public var locations:Array;
+	[Inject]
+	public var contextInitialized:IContextInitialized;
 
-		private var selectedMenuItem:MenuItem;
+	[Inject]
+	public var tipsModel:TipsModel;
 
-        override protected function onRegister():void {
-            bus.navigationRequest.add( handleNavigationRequest );
-	        bus.tipSelected.add( tipSelectedHandler );
-	        service.get().then( handleServiceResult, handleServiceError );
+	[Inject]
+	public var tabsModel:TabsModel;
 
-            var menuItems:Array = new Array(
-                    new MenuItem( "How it works", "views/how.html" ),
-                    new MenuItem( "Tips", "views/tips.html" ),
-                    new MenuItem( "The flow", "views/flow.html"),
-                    new MenuItem( "And the details", "views/details.html"  )
-            );
+	[Inject]
+	public var tipsModelUpdated:ITipsModelUpdated;
 
-            menu.menuItemSelected.add( menuItemSelected );
-            menu.data = menuItems;
+	[Inject]
+	public var tabsModelUpdated:ITabsModelUpdated;
 
-        }
+	private var selectedMenuItem:MenuItem;
 
-		private function handleServiceResult( result:Array ):void{
-			locations = result;
+	override public function initialize():void {
+		navigationRequest.add( handleNavigationRequest );
+		tipSelected.add( tipSelectedHandler );
 
-			showMap();
+		tipsModelUpdated.add( provideMapWithData );
+		tabsModelUpdated.add( provideMenuWithData );
+
+		menu.menuItemSelected.add( menuItemSelected );
+	}
+
+	private function provideMenuWithData( items:Array ):void {
+		menu.data = items;
+	}
+
+	private function handleNavigationRequest( navto:String ):void {
+		if( navto == "tips"){
+			menu.selectedIndex = 1;
 		}
+	}
 
-		private function handleServiceError( error:Object ):void{
-			Window.console.log( error );
+	private function menuItemSelected( menuData:MenuItem ):void {
+		viewStack.popView();
+
+		selectedMenuItem = menuData;
+
+		var promise:Promise = viewStack.pushView(menuData.url);
+
+		promise.then( promiseResult );
+	}
+
+	private function promiseResult( result:AbstractMediator ):void{
+		if(selectedMenuItem.name == "How it works"){
+			resetMap();
 		}
+	}
 
-        private function handleNavigationRequest( navto:String ):void {
-            if( navto == "tips"){
-                menu.selectedIndex = 1;
-            }
-        }
+	private function provideMapWithData( locations:Array ):void{
+		map.showLocations( locations );
+	}
 
-        private function menuItemSelected( menuData:MenuItem ):void {
-            viewStack.popView();
+	private function resetMap():void{
+		map.resetMap();
+	}
 
-	        selectedMenuItem = menuData;
-
-            var promise:Promise = viewStack.pushView(menuData.url);
-
-	        promise.then( promiseResult );
-            /*
-	        promise.then( function( result:AbstractMediator ):void {
-
-            } );
-            */
-        }
-
-		private function promiseResult( result:AbstractMediator ):void{
-			if(selectedMenuItem.name == "How it works"){
-				resetMap();
-			}
-		}
-
-        private function showMap():void{
-
-            var mapOptions:MapOptions = new MapOptions();
-            mapOptions.center = new LatLng(33.748893,-84.388046);
-            mapOptions.zoom = 10;
-            mapOptions.mapTypeId = MapTypeId.ROADMAP;
-
-            map = new Map(map[0] as HTMLElement, mapOptions);
-
-            for (var i:int = 0; i < locations.length; i++) {
-	            var location:Tip = locations[i] as Tip;
-	            var config:Object = new Object();
-	            config.title = location.name;
-	            config.position = new LatLng(location.latitude, location.longitude);
-	            config.map = map;
-	            var marker:Marker = new Marker( config );
-            }
-        }
-
-		private function resetMap():void{
-			var mapOptions:MapOptions = new MapOptions();
-			mapOptions.center = new LatLng(33.748893,-84.388046);
-			mapOptions.zoom = 10;
-			mapOptions.mapTypeId = MapTypeId.ROADMAP;
-
-			map.setOptions(mapOptions);
-		}
-
-		private function tipSelectedHandler( tip:Tip):void{
-			Window.console.log("Index Tip: " + tip.name);
-			var mapOptions:MapOptions = new MapOptions();
-			mapOptions.center = new LatLng( tip.latitude, tip.longitude );
-			mapOptions.zoom = 12;
-			mapOptions.mapTypeId = MapTypeId.ROADMAP;
-			map.setOptions( mapOptions );
-		}
-    }
+	private function tipSelectedHandler( tip:Tip):void{
+		map.showTip( tip );
+	}
+}
 }

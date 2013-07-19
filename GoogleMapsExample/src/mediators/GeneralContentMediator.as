@@ -25,7 +25,7 @@ package mediators {
         public var goToNewPage:JQuery;
         */
 
-        override protected function onRegister():void {
+        override public function initialize():void {
             goToTips.click( handleLinkClick );
 
             // THIS IS ONLY USED FOR CONTROLLING USER CLICKS OF LINKS

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "How it works",
+        "url": "views/how.html",
+        "isRedirect": true
+    },
+    {
+        "name": "Tips",
+        "url": "views/tips.html",
+        "isRedirect": true
+    },
+    {
+        "name": "The flow",
+        "url": "views/flow.html",
+        "isRedirect": true
+    },
+    {
+        "name": "And the details",
+        "url": "views/details.html",
+        "isRedirect": true
+    }
+]

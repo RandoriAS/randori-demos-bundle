@@ -16,6 +16,10 @@
 
 }
 
+.tipMap{
+    -randori-behavior: "behaviors.TipMap";
+}
+
 .tipsPage {
     -randori-mediator: "mediators.TipsMediator";
 }

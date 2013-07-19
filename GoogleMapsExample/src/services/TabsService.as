@@ -1,4 +1,5 @@
 package services {
+import model.TabsModel;
 import model.TipsModel;
 
 import randori.async.Promise;
@@ -7,10 +8,10 @@ import randori.webkit.xml.XMLHttpRequest;
 
 import services.parser.GenericJsonParser;
 
-public class TipsService extends AbstractService {
+public class TabsService extends AbstractService {
 
 	[Inject]
-	public var tipsModel:TipsModel;
+	public var tabsModel:TabsModel;
 
 	private var targets:GenericJsonParser;
 	private var path:String;
@@ -23,18 +24,18 @@ public class TipsService extends AbstractService {
 	}
 
 	private function handleResult( value:Array ):void {
-		tipsModel.allTips = value;
+		tabsModel.allTabs = value;
 	}
 
 	private function handleFault( info:Object ):void {
 
 	}
 
-	public function TipsService( xmlHttpRequest:XMLHttpRequest, targets:GenericJsonParser ) {
+	public function TabsService( xmlHttpRequest:XMLHttpRequest, targets:GenericJsonParser ) {
 		super(xmlHttpRequest);
 
 		this.targets = targets;
-		this.path = "assets/data/tips.txt";
+		this.path = "assets/data/menu.txt";
 	}
 }
 }

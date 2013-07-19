@@ -1,11 +1,16 @@
 package mediators {
+import commands.signals.ITipSelected;
+
 import eventbus.AppEventsBus;
+
+import model.TipsModel;
 
 import randori.behaviors.AbstractMediator;
 import randori.behaviors.List;
 import randori.webkit.page.Window;
 
 import services.TipsService;
+import services.vo.Tip;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,33 +20,24 @@ import services.TipsService;
  * To change this template use File | Settings | File Templates.
  */
 
-    public class TipsMediator extends AbstractMediator {
+public class TipsMediator extends AbstractMediator {
 
-        [Inject]
-        public var service:TipsService;
+	[View]
+	public var tipsList:List;
 
-		[Inject]
-		public var bus:AppEventsBus;
+	[Inject]
+	public var tipsModel:TipsModel;
 
-        [View]
-        public var tipsList:List;
+	[Inject]
+	public var tipSelected:ITipSelected;
 
-        override protected function onRegister():void {
-	        tipsList.listChanged.add( handleTipSelected );
-            service.get().then( handleServiceResult, handleServiceError );
-        }
+	override public function initialize():void {
+		tipsList.listChanged.add( handleTipSelected );
+		tipsList.data = tipsModel.allTips;
+	}
 
-        private function handleServiceResult( result:Array ):void{
-            tipsList.data = result;
-        }
-
-		private function handleServiceError( error:Object ):void{
-			Window.console.log( error );
-		}
-
-        private function handleTipSelected( thing:* ):void {
-	        Window.console.log( 'Selected: ' +  tipsList.selectedItem.name );
-	        bus.tipSelected.dispatch(tipsList.selectedItem );
-        }
-    }
+	private function handleTipSelected( tipIndex:int ):void {
+		tipSelected.dispatch( tipsList.selectedItem as Tip );
+	}
+}
 }

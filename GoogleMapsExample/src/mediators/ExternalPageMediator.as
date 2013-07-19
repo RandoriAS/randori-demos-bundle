@@ -51,7 +51,7 @@ import randori.webkit.page.Window;
             Window.open(href, '_blank' );
         }
 
-        override protected function onRegister():void {
+        override public function initialize():void {
 
         }
     }

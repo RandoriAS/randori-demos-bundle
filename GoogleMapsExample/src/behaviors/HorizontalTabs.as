@@ -31,9 +31,9 @@ package behaviors {
             selectedIndex = 0;
         }
 
-        override protected function onRegister():void  {
+        override public function initialize():void  {
             this.listChanged.add( listChangedHandler );
-            super.onRegister();
+            super.initialize();
         }
 
         private function listChangedHandler( index:int, data:Object ):void {
