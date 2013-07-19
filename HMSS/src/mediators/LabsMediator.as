@@ -30,7 +30,7 @@ package mediators {
         [Inject]
         public var labService:LabService
 
-        override protected function onRegister():void {
+        override public function initialize():void {
             labService.get().then( displayInList );
 		}
 

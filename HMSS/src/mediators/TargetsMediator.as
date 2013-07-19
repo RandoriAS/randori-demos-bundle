@@ -47,7 +47,7 @@ package mediators {
 		[Inject]
 		public var bus:HMSSBus;
 
-		override protected function onRegister():void
+		override public function initialize():void
 		{
 			// add selection / change handler to the list
 			targetList.listChanged.add( handleTargetSelected );

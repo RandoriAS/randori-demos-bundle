@@ -80,7 +80,7 @@ package mediators.admin
 		/**
 		 * @inheritDoc
 		 */
-		override protected function onRegister():void
+		override public function initialize():void
 		{
 			hideNewTaskForm();
 			enableAddButton();
@@ -100,7 +100,7 @@ package mediators.admin
 		/**
 	 	 * @inheritDoc
 	 	 */
-		override protected function onDeregister():void
+		override public function destroy():void
 		{
 			addBtn.off(handleAddClick);
 			createTaskForm.formSaved.remove(formSaved);

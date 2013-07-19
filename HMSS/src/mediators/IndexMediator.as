@@ -53,7 +53,7 @@ public class IndexMediator extends AbstractMediator {
 		[Inject]
 		public var menuService:MenuService;
 
-        override protected function onRegister():void
+        override public function initialize():void
 		{
 
 			bus.userChanged.add( currentUser_changeHandler );

@@ -42,11 +42,11 @@ public class TargetLocation extends AbstractMediator {
         bus.showTargetLocation.dispatch( target );
     }
 
-    override protected function onRegister():void {
+    override public function initialize():void {
         backToTarget.click( handleBack );
     }
 
-    override protected function onDeregister():void {
+    override public function destroy():void {
         backToTarget.off("click");
     }
 

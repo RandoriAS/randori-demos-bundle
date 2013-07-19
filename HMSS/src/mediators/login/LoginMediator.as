@@ -75,9 +75,9 @@ package mediators.login {
 			loginErrorTxt.show();
 		}
 
-		override protected function onRegister():void
+		override public function initialize():void
 		{
-			super.onRegister();
+			super.initialize();
 
 			loginButton.click( loginButton_clickHandler );
 			loginErrorTxt.hide();
