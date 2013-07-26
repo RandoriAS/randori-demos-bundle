@@ -1,5 +1,6 @@
 **/html-template/
-**/.idea/
+/.idea/
 **/generated/
 **/out/
-**/*.iml
+*.iml
+*.rbl
