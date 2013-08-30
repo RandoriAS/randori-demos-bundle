@@ -65,7 +65,7 @@ package services
 			super(xmlHttpRequest);
 
 			this.parser = parser;
-			this.path = "https://www.cia.gov/news-information/your-news/cia-press-releases-statements/RSS.xml";
+			this.path = "https://www.cia.gov/news-information/your-news/cia-newsroom/RSS.xml";
 			// feeds were rejecting requests from localhost, so proxying it through yahoo to get around that. also gives
 			// us the opportunity to convert from xml to json for easier parsing.
 			this.proxiedPath = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'" + encodeURI(this.path) +"'&format=json";
